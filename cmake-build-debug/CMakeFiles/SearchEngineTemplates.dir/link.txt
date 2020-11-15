@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/SearchEngineTemplates.dir/main.cpp.o CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o  -o SearchEngineTemplates.exe -Wl,--out-implib,libSearchEngineTemplates.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

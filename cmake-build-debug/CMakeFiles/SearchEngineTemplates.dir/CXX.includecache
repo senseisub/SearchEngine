@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.cpp
+AVLTree.h
+/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.h
+
+/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.h
+iostream
+/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/iostream
+
+/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/main.cpp
+iostream
+-
+AVLTree.h
+/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.h
+
