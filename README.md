@@ -1,7 +1,7 @@
 # search-engine-plusplus
 # Kick Covid in the _____. 
 Kick Covid in the _____. 
-Overview
+## Overview
 The world is in a fight against the Corona Virus!  What can computer scientists do in a situation like this? We can build tools to help epidemiologists, biologists, virologists, and other scientists search the incredible amount of data found in already-published research articles.  A dataset consisting of thousands of scientific scholarly publications was created by the Allen Institute for AI in partnership with the Chan Zuckerberg Initiative, Georgetown University’s Center for Security and Emerging Technology, Microsoft Research, and the National Library of Medicine - National Institutes of Health, in coordination with The White House Office of Science and Technology Policy. The data set, named CORD-19, is a free resource to researchers containing currently 280,000 research papers.  
 
 For your final project in 2341, you’re going to build a search engine for a subset of these articles that could help a scientist to efficiently find the information they are looking for.  
