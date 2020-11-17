@@ -1,15 +1,14 @@
 //
 // Created by seuns on 11/17/2020.
 //
-
 #include "Functions.h"
-#include<dirent.h>
-#include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
-#include "rapidjson/filereadstream.h"
+#include <dirent.h>
+#include "rapidjson/include/rapidjson/document.h"
+#include "rapidjson/include/rapidjson/writer.h"
+#include "rapidjson/include/rapidjson/stringbuffer.h"
+#include "rapidjson/include/rapidjson/filereadstream.h"
 #include <ctype.h>
-#include <rapidjson/istreamwrapper.h>
+#include "rapidjson/include/rapidjson/istreamwrapper.h"
 
 void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){
     std::string str;
