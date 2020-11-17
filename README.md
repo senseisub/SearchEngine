@@ -1,4 +1,7 @@
 # Suberu Herman
+Info: For some reason, Brandon Hermans terminal is logged into his personal account rather
+than his BrandonHermanSMU account so there are contributions from both BrandonHermanSMU and BrandonHerman. Hopefully
+this does not bother too much.
 # Kick Covid in the _____. 
 Kick Covid in the _____. 
 ## Overview
