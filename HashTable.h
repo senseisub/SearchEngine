@@ -10,9 +10,6 @@ using namespace std;
 #include "AVLTree.h"
 #include "Author.h"
 
-// creating hash table template. will fill out tuesday with seun
-// just adding to repo
-
 class HashTable {
 private:
     int amountOfBuckets;
