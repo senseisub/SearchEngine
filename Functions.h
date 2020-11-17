@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include <fstream>
-#include <bits/stdc++.h>
+#include "stdc++.h"
 
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_FUNCTIONS_H
