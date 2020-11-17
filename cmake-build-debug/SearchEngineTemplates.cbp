@@ -113,7 +113,16 @@
 		<Unit filename="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Word.h">
 			<Option target="SearchEngineTemplates"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/fileParser.cpp">
+			<Option target="SearchEngineTemplates"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/main.cpp">
+			<Option target="SearchEngineTemplates"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/porter2_stemmer.cpp">
+			<Option target="SearchEngineTemplates"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/porter2_stemmer.h">
 			<Option target="SearchEngineTemplates"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/CMakeLists.txt">

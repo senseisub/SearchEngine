@@ -231,6 +231,33 @@ Word.cpp.s:
 	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/Word.cpp.s
 .PHONY : Word.cpp.s
 
+fileParser.o: fileParser.cpp.o
+
+.PHONY : fileParser.o
+
+# target to build an object file
+fileParser.cpp.o:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/fileParser.cpp.o
+.PHONY : fileParser.cpp.o
+
+fileParser.i: fileParser.cpp.i
+
+.PHONY : fileParser.i
+
+# target to preprocess a source file
+fileParser.cpp.i:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/fileParser.cpp.i
+.PHONY : fileParser.cpp.i
+
+fileParser.s: fileParser.cpp.s
+
+.PHONY : fileParser.s
+
+# target to generate assembly for a file
+fileParser.cpp.s:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/fileParser.cpp.s
+.PHONY : fileParser.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -258,6 +285,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+porter2_stemmer.o: porter2_stemmer.cpp.o
+
+.PHONY : porter2_stemmer.o
+
+# target to build an object file
+porter2_stemmer.cpp.o:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/porter2_stemmer.cpp.o
+.PHONY : porter2_stemmer.cpp.o
+
+porter2_stemmer.i: porter2_stemmer.cpp.i
+
+.PHONY : porter2_stemmer.i
+
+# target to preprocess a source file
+porter2_stemmer.cpp.i:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/porter2_stemmer.cpp.i
+.PHONY : porter2_stemmer.cpp.i
+
+porter2_stemmer.s: porter2_stemmer.cpp.s
+
+.PHONY : porter2_stemmer.s
+
+# target to generate assembly for a file
+porter2_stemmer.cpp.s:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/porter2_stemmer.cpp.s
+.PHONY : porter2_stemmer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -279,9 +333,15 @@ help:
 	@echo "... Word.o"
 	@echo "... Word.i"
 	@echo "... Word.s"
+	@echo "... fileParser.o"
+	@echo "... fileParser.i"
+	@echo "... fileParser.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... porter2_stemmer.o"
+	@echo "... porter2_stemmer.i"
+	@echo "... porter2_stemmer.s"
 .PHONY : help
 
 

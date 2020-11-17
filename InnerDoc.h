@@ -14,8 +14,8 @@ public:
     InnerDoc();
     InnerDoc(string documentID);
     void increaseRelativeFreq();
-    bool AVLTree<InnerDoc>::operator<(InnerDoc& rhs);
-    bool AVLTree<InnerDoc>::operator>(InnerDoc& rhs);
+    bool operator<(InnerDoc& rhs);
+    bool operator>(InnerDoc& rhs);
 };
 
 

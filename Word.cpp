@@ -26,7 +26,7 @@ int Word::getFreq() {
     return freq;
 }
 
-void Word::setWord(int newWord) {
+void Word::setWord(string newWord) {
     word = newWord;
 }
 
