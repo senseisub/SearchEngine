@@ -15,5 +15,6 @@ int main() {
     tree.insert(23);
     tree.insert(24);
     tree.inorder();
+
     return 0;
 }
