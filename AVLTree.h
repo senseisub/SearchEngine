@@ -165,5 +165,9 @@ class AVLTree{
             return false;
         }
 
+        t& getValue(const t& key){
+            return (search(this->root, key))->data;
+        }
+
 };
 #endif //SEARCHENGINETEMPLATES_AVLTREE_H
