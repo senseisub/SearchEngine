@@ -16,9 +16,9 @@ void InnerDoc::increaseRelativeFreq(){
     relativeFreq++;
 }
 
-bool AVLTree<InnerDoc>::operator<(InnerDoc& rhs) {
-    return this->documentID.compare(rhs.name)  > 0 ? true : false;
+bool InnerDoc::operator<(InnerDoc& rhs) {
+    return this->documentID.compare(rhs.documentID)  > 0 ? true : false;
 }
-bool AVLTree<InnerDoc>::operator>(InnerDoc& rhs) {
-    return this->documentID.compare(rhs.name)  < 0 ? true : false;
+bool InnerDoc::operator>(InnerDoc& rhs) {
+    return this->documentID.compare(rhs.documentID)  < 0 ? true : false;
 }

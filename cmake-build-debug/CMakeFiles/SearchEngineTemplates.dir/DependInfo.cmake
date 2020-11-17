@@ -8,7 +8,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Author.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o"
   "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/InnerDoc.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o"
   "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Word.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/fileParser.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/fileParser.cpp.o"
   "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/main.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/main.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/porter2_stemmer.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/porter2_stemmer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
