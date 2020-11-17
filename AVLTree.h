@@ -72,6 +72,19 @@ class AVLTree{
             cout << node->data << endl;
             inorder(node->right);
         }
+        Node* search(Node* root, const t& key){
+            // Base Cases: root is null or key is present at root
+            if (root == nullptr || root->data == key)
+                return root;
+
+            // Key is greater than root's key
+            if (key > root->data)
+                return search(root->right, key);
+
+            // Key is smaller than root's key
+            return search(root->left, key);
+        }
+
     public:
         AVLTree(){
             root = nullptr;
@@ -143,6 +156,13 @@ class AVLTree{
 
         int getSize(){
             return this->size;
+        }
+
+        bool contains(const t& key){
+            if(search(this->root, key) != nullptr){
+                return true;
+            }
+            return false;
         }
 
 };
