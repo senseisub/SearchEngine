@@ -3,11 +3,10 @@
 //
 #include <iostream>
 #include <fstream>
-#include <bits/unordered_set.h>
 
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_FUNCTIONS_H
 #define SEARCHENGINETEMPLATES_FUNCTIONS_H
 void fileParser();
-void loadStopWord(ifstream& stops, unordered_set<string>& stopWords);
+void loadStopWord(ifstream& stops);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
