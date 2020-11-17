@@ -1,4 +1,4 @@
-C:\Users\seuns\AppData\Local\JetBrains\CLion2020.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates"
+C:\Users\seuns\AppData\Local\JetBrains\CLion2020.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus"
 -- Configuring done
 -- Generating done
--- Build files have been written to: /cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug
+-- Build files have been written to: /cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug

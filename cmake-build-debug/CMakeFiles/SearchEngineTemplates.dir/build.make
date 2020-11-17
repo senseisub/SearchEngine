@@ -43,10 +43,10 @@ RM = /cygdrive/c/Users/seuns/AppData/Local/JetBrains/CLion2020.1/cygwin_cmake/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates"
+CMAKE_SOURCE_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug"
+CMAKE_BINARY_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/SearchEngineTemplates.dir/depend.make
@@ -59,73 +59,88 @@ include CMakeFiles/SearchEngineTemplates.dir/flags.make
 
 CMakeFiles/SearchEngineTemplates.dir/main.cpp.o: CMakeFiles/SearchEngineTemplates.dir/flags.make
 CMakeFiles/SearchEngineTemplates.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/main.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/main.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/main.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/main.cpp"
 
 CMakeFiles/SearchEngineTemplates.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngineTemplates.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/main.cpp" > CMakeFiles/SearchEngineTemplates.dir/main.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/main.cpp" > CMakeFiles/SearchEngineTemplates.dir/main.cpp.i
 
 CMakeFiles/SearchEngineTemplates.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngineTemplates.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/main.cpp" -o CMakeFiles/SearchEngineTemplates.dir/main.cpp.s
-
-CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o: CMakeFiles/SearchEngineTemplates.dir/flags.make
-CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o: ../AVLTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.cpp"
-
-CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.cpp" > CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.i
-
-CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.cpp" -o CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/main.cpp" -o CMakeFiles/SearchEngineTemplates.dir/main.cpp.s
 
 CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o: CMakeFiles/SearchEngineTemplates.dir/flags.make
 CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o: ../Author.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Author.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Author.cpp"
 
 CMakeFiles/SearchEngineTemplates.dir/Author.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngineTemplates.dir/Author.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Author.cpp" > CMakeFiles/SearchEngineTemplates.dir/Author.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Author.cpp" > CMakeFiles/SearchEngineTemplates.dir/Author.cpp.i
 
 CMakeFiles/SearchEngineTemplates.dir/Author.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngineTemplates.dir/Author.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Author.cpp" -o CMakeFiles/SearchEngineTemplates.dir/Author.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Author.cpp" -o CMakeFiles/SearchEngineTemplates.dir/Author.cpp.s
 
 CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o: CMakeFiles/SearchEngineTemplates.dir/flags.make
 CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o: ../Article.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Article.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Article.cpp"
 
 CMakeFiles/SearchEngineTemplates.dir/Article.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngineTemplates.dir/Article.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Article.cpp" > CMakeFiles/SearchEngineTemplates.dir/Article.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Article.cpp" > CMakeFiles/SearchEngineTemplates.dir/Article.cpp.i
 
 CMakeFiles/SearchEngineTemplates.dir/Article.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngineTemplates.dir/Article.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Article.cpp" -o CMakeFiles/SearchEngineTemplates.dir/Article.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Article.cpp" -o CMakeFiles/SearchEngineTemplates.dir/Article.cpp.s
+
+CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o: CMakeFiles/SearchEngineTemplates.dir/flags.make
+CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o: ../Word.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Word.cpp"
+
+CMakeFiles/SearchEngineTemplates.dir/Word.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngineTemplates.dir/Word.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Word.cpp" > CMakeFiles/SearchEngineTemplates.dir/Word.cpp.i
+
+CMakeFiles/SearchEngineTemplates.dir/Word.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngineTemplates.dir/Word.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Word.cpp" -o CMakeFiles/SearchEngineTemplates.dir/Word.cpp.s
+
+CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o: CMakeFiles/SearchEngineTemplates.dir/flags.make
+CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o: ../InnerDoc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o -c "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/InnerDoc.cpp"
+
+CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/InnerDoc.cpp" > CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.i
+
+CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/InnerDoc.cpp" -o CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.s
 
 # Object files for target SearchEngineTemplates
 SearchEngineTemplates_OBJECTS = \
 "CMakeFiles/SearchEngineTemplates.dir/main.cpp.o" \
-"CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o" \
 "CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o" \
-"CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o"
+"CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o" \
+"CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o" \
+"CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o"
 
 # External object files for target SearchEngineTemplates
 SearchEngineTemplates_EXTERNAL_OBJECTS =
 
 SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/main.cpp.o
-SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o
 SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o
 SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o
+SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o
+SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o
 SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/build.make
 SearchEngineTemplates.exe: CMakeFiles/SearchEngineTemplates.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable SearchEngineTemplates.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SearchEngineTemplates.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SearchEngineTemplates.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -138,6 +153,6 @@ CMakeFiles/SearchEngineTemplates.dir/clean:
 .PHONY : CMakeFiles/SearchEngineTemplates.dir/clean
 
 CMakeFiles/SearchEngineTemplates.dir/depend:
-	cd "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/SearchEngineTemplates.dir/depend
 

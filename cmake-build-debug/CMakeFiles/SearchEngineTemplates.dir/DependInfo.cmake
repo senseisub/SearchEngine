@@ -4,10 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/AVLTree.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o"
-  "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Article.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o"
-  "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/Author.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o"
-  "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/main.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/main.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Article.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Author.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/InnerDoc.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/Word.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o"
+  "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/main.cpp" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/SearchEngineTemplates.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

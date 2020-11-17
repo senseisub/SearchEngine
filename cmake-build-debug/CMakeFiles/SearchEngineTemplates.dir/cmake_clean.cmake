@@ -1,7 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o"
   "CMakeFiles/SearchEngineTemplates.dir/Article.cpp.o"
   "CMakeFiles/SearchEngineTemplates.dir/Author.cpp.o"
+  "CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o"
+  "CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o"
   "CMakeFiles/SearchEngineTemplates.dir/main.cpp.o"
   "SearchEngineTemplates.exe"
   "SearchEngineTemplates.pdb"

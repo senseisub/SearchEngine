@@ -48,10 +48,10 @@ RM = /cygdrive/c/Users/seuns/AppData/Local/JetBrains/CLion2020.1/cygwin_cmake/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates"
+CMAKE_SOURCE_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug"
+CMAKE_BINARY_DIR = "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/seuns/Desktop/Data Structures/SearchEngineTemplates/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/seuns/Desktop/Data Structures/Final Project/SearchEngine/search-engine-plusplus/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -122,33 +122,6 @@ SearchEngineTemplates: cmake_check_build_system
 SearchEngineTemplates/fast:
 	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/build
 .PHONY : SearchEngineTemplates/fast
-
-AVLTree.o: AVLTree.cpp.o
-
-.PHONY : AVLTree.o
-
-# target to build an object file
-AVLTree.cpp.o:
-	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.o
-.PHONY : AVLTree.cpp.o
-
-AVLTree.i: AVLTree.cpp.i
-
-.PHONY : AVLTree.i
-
-# target to preprocess a source file
-AVLTree.cpp.i:
-	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.i
-.PHONY : AVLTree.cpp.i
-
-AVLTree.s: AVLTree.cpp.s
-
-.PHONY : AVLTree.s
-
-# target to generate assembly for a file
-AVLTree.cpp.s:
-	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/AVLTree.cpp.s
-.PHONY : AVLTree.cpp.s
 
 Article.o: Article.cpp.o
 
@@ -204,6 +177,60 @@ Author.cpp.s:
 	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/Author.cpp.s
 .PHONY : Author.cpp.s
 
+InnerDoc.o: InnerDoc.cpp.o
+
+.PHONY : InnerDoc.o
+
+# target to build an object file
+InnerDoc.cpp.o:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.o
+.PHONY : InnerDoc.cpp.o
+
+InnerDoc.i: InnerDoc.cpp.i
+
+.PHONY : InnerDoc.i
+
+# target to preprocess a source file
+InnerDoc.cpp.i:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.i
+.PHONY : InnerDoc.cpp.i
+
+InnerDoc.s: InnerDoc.cpp.s
+
+.PHONY : InnerDoc.s
+
+# target to generate assembly for a file
+InnerDoc.cpp.s:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/InnerDoc.cpp.s
+.PHONY : InnerDoc.cpp.s
+
+Word.o: Word.cpp.o
+
+.PHONY : Word.o
+
+# target to build an object file
+Word.cpp.o:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/Word.cpp.o
+.PHONY : Word.cpp.o
+
+Word.i: Word.cpp.i
+
+.PHONY : Word.i
+
+# target to preprocess a source file
+Word.cpp.i:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/Word.cpp.i
+.PHONY : Word.cpp.i
+
+Word.s: Word.cpp.s
+
+.PHONY : Word.s
+
+# target to generate assembly for a file
+Word.cpp.s:
+	$(MAKE) -f CMakeFiles/SearchEngineTemplates.dir/build.make CMakeFiles/SearchEngineTemplates.dir/Word.cpp.s
+.PHONY : Word.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -240,15 +267,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... SearchEngineTemplates"
 	@echo "... edit_cache"
-	@echo "... AVLTree.o"
-	@echo "... AVLTree.i"
-	@echo "... AVLTree.s"
 	@echo "... Article.o"
 	@echo "... Article.i"
 	@echo "... Article.s"
 	@echo "... Author.o"
 	@echo "... Author.i"
 	@echo "... Author.s"
+	@echo "... InnerDoc.o"
+	@echo "... InnerDoc.i"
+	@echo "... InnerDoc.s"
+	@echo "... Word.o"
+	@echo "... Word.i"
+	@echo "... Word.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
