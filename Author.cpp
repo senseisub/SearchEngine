@@ -21,14 +21,14 @@ string& Author::getAuthorName(){
 vector<Article*>& Author::getArticleList(){
     return this->articles;
 }
-bool Author::operator < (Author& author){
+bool Author::operator < (const Author& author) const{
     return this->name.compare(author.name)  < 0 ? true : false;
 }
 
-bool Author::operator > (Author& author){
+bool Author::operator > (const Author& author) const{
     return this->name.compare(author.name)  > 0 ? true : false;
 }
 
-bool Author::operator == (Author& author){
+bool Author::operator == (const Author& author) const{
     return this->name.compare(author.name)  == 0 ? true : false;
 }

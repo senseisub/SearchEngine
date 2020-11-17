@@ -10,13 +10,14 @@ class Author{
         string name;
         vector<Article*> articles;
     public:
+        Author(){}
         Author(string);
         ~Author();
         void printCopy();
         string& getAuthorName();
         vector<Article*>& getArticleList();
-        bool operator < (Author& author);
-        bool operator > (Author& author);
-        bool operator == (Author& author);
+        bool operator < (const Author& author) const;
+        bool operator > (const Author& author) const;
+        bool operator == (const Author& author) const;
 };
 #endif //SEARCHENGINETEMPLATES_AUTHOR_H

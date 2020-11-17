@@ -1,5 +1,6 @@
 #include <iostream>
 #include "AVLTree.h"
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
     AVLTree<int> tree;
@@ -15,6 +16,5 @@ int main() {
     tree.insert(23);
     tree.insert(24);
     tree.inorder();
-
     return 0;
 }
