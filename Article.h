@@ -13,6 +13,7 @@ class Article{
         string articleID;
     public:
         Article(string, string, string, string);
+        Article(string, string);
         string& getPrintCopy();
         string& getTitle();
         string& getDatePub();

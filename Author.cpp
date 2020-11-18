@@ -8,9 +8,7 @@ Author::Author(string authorName){
     this->name = authorName;
 }
 Author::~Author(){
-    for(Article* x : articles){
-        delete x;
-    }
+
 }
 void Author::printCopy(){
 

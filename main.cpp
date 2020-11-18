@@ -21,8 +21,9 @@ int main() {
     unordered_set<string> stopWords;
     AVLTree<Word> allWords;
     AVLTree<StopWordAssociation> stopWordAssociation;
-    fileParser(stopWords, allWords, stopWordAssociation);
+    fileParser(stopWords, allWords, stopWordAssociation, authors);
     cout << "number of words : " << allWords.getSize() << endl;
     cout << "number of stops : " << stopWordAssociation.getSize() << endl;
+    cout << "number of authors : " << authors.getSize() << endl;
     return 0;
 }

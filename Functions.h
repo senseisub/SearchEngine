@@ -11,6 +11,6 @@
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_FUNCTIONS_H
 #define SEARCHENGINETEMPLATES_FUNCTIONS_H
-int fileParser(unordered_set<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations);
+int fileParser(unordered_set<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors);
 void loadStopWords(ifstream& stops, unordered_set<string>& stopWords);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
