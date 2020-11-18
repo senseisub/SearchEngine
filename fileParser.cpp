@@ -29,12 +29,8 @@ type = "r";
 
 void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){
     std::string str;
-    while(stops.peek()!=EOF) {
-        //puts each line in the line variable
-        std::getline(stops, str);
-        if(str.size() > 0){
-            stopWords.insert(str);
-        }
+    while(stops >> str) {
+        stopWords.insert(str);
     }
 }
 
@@ -47,12 +43,13 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
         size_t pos = 0;
         //if words consists only of alphabetical characters
         for(char c : word){
-            if((int)c < 65 || ((int)c < 97 && (int)c > 90) || (int)c >122){
+            if(((int)c < 65 || ((int)c < 97) && ((int)c > 90) || (int)c >122)){
                 if (word.find(c) != std::string::npos) {
                     word.erase(word.find(c));
                 }
             }
         }
+
 
         //if not a stop word
         if (stopWords.find(word) == stopWords.end()) {
@@ -152,7 +149,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
 
                 //initializes string array
                 //if authors are empty
-                Article* thisArticle = new Article(title, documentID);
+                Article thisArticle(title, documentID);
                 for(int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i++){
                     string first = d["metadata"]["authors"].GetArray()[i]["first"].GetString();
                     string last = d["metadata"]["authors"].GetArray()[i]["last"].GetString();

@@ -16,7 +16,7 @@ void Author::printCopy(){
 string& Author::getAuthorName(){
     return this->name;
 }
-vector<Article*>& Author::getArticleList(){
+vector<Article>& Author::getArticleList(){
     return this->articles;
 }
 bool Author::operator < (const Author& author) const{
@@ -31,7 +31,7 @@ bool Author::operator == (const Author& author) const{
     return this->name.compare(author.name)  == 0 ? true : false;
 }
 
-void Author::addArticles(Article*& article) {
+void Author::addArticles(Article& article) {
     this->articles.push_back(article);
 }
 
