@@ -27,7 +27,7 @@ type = "r";
 type = "r";
 #endif
 
-void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){
+void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){ //Unordered set of stop words of O(1)
     std::string str;
     while(stops >> str) {
         stopWords.insert(str);
