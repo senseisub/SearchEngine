@@ -32,3 +32,19 @@ bool Author::operator > (const Author& author) const{
 bool Author::operator == (const Author& author) const{
     return this->name.compare(author.name)  == 0 ? true : false;
 }
+
+void Author::addArticles(Article*& article) {
+    this->articles.push_back(article);
+}
+
+bool Author::operator == (const string& author) const{
+    return this->name.compare(author)  == 0 ? true : false;
+}
+
+bool Author::operator < (const string& author) const{
+    return this->name.compare(author) < 0 ? true : false;
+}
+
+bool Author::operator > (const string& author) const{
+    return this->name.compare(author) > 0 ? true : false;
+}

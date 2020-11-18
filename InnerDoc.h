@@ -12,10 +12,14 @@ private:
     string documentID;
 public:
     InnerDoc();
-    InnerDoc(string documentID);
+    InnerDoc(string& documentID);
     void increaseRelativeFreq();
-    bool operator<(InnerDoc& rhs);
-    bool operator>(InnerDoc& rhs);
+    bool operator<(const InnerDoc& rhs) const;
+    bool operator>(const InnerDoc& rhs) const;
+    bool operator<(const string& rhs) const;
+    bool operator>(const string& rhs) const;
+    bool operator == (const InnerDoc& doc) const;
+    bool operator == (const string& documentName) const;
 };
 
 
