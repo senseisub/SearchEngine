@@ -10,7 +10,7 @@
 #include <ctype.h>
 #include "rapidjson/include/rapidjson/istreamwrapper.h"
 
-void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){
+void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){ //Unordered set of stop words of O(1)
     std::string str;
     while(stops.peek()!=EOF) {
         //puts each line in the line variable
