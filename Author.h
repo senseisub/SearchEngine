@@ -16,8 +16,13 @@ class Author{
         void printCopy();
         string& getAuthorName();
         vector<Article*>& getArticleList();
+        void addArticles(Article*& article);
         bool operator < (const Author& author) const;
         bool operator > (const Author& author) const;
+        bool operator < (const string& author) const;
+        bool operator > (const string& author) const;
         bool operator == (const Author& author) const;
-};
+        bool operator == (const string& author) const;
+
+    };
 #endif //SEARCHENGINETEMPLATES_AUTHOR_H

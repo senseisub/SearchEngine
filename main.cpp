@@ -1,8 +1,7 @@
-#define CATCH_CONFIG_RUNNER
-#include "catch.hpp"
 #include <iostream>
 #include "AVLTree.h"
-
+#include "Author.h"
+#include "Functions.h"
 int main() {
     std::cout << "Hello, World!" << std::endl;
     AVLTree<int> tree;
@@ -18,5 +17,12 @@ int main() {
     tree.insert(23);
     tree.insert(24);
     tree.inorder();
+    HashTable authors(20000);
+    unordered_set<string> stopWords;
+    AVLTree<Word> allWords;
+    AVLTree<StopWordAssociation> stopWordAssociation;
+    fileParser(stopWords, allWords, stopWordAssociation);
+    cout << "number of words : " << allWords.getSize() << endl;
+    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     return 0;
 }

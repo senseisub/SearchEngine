@@ -61,3 +61,9 @@ Author& HashTable::searchForAuthor(string authorName) { //searches through tree 
     else
         cout << "No author in tree" << endl;
 }
+
+bool HashTable::containsAuthor(string& authorName){
+    long long int hash = compute_hash(authorName);
+    int index = hashFunction(hash);
+    return table[index].contains(authorName);
+}
