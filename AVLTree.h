@@ -23,17 +23,20 @@ class AVLTree{
         };
         Node* root;
         int size;
+        //empties trees and clears pointers
         void emptyTree(Node*& currentNode){
-            if(currentNode == nullptr){
+            if(currentNode == nullptr)
                 return;
-            }
             emptyTree(currentNode->left);
             emptyTree(currentNode->right);
-            if(currentNode->left == nullptr && currentNode->right == nullptr) {
-                delete currentNode;
-                currentNode = nullptr;
-            }
+            delete currentNode;
+            currentNode = nullptr;
+//            if(currentNode->left == nullptr && currentNode->right == nullptr) {
+//                delete currentNode;
+//                currentNode = nullptr;
+//            }
         }
+        //recursive insert function
         void insert(const t& data, Node*& node){
             if(node == nullptr) {
                 node = new Node(data);
@@ -63,7 +66,7 @@ class AVLTree{
 
             node->height = max(height(node->left), height(node->right))+1;
         }
-
+        //prints the values in the AVLTree in order
         void inorder(Node*& node){
             if(node == nullptr){
                 return;
@@ -72,6 +75,7 @@ class AVLTree{
             cout << node->data << endl;
             inorder(node->right);
         }
+        //searches AVLTree for key
         Node* search(Node*& root, const t& key){
             // Base Cases: root is null or key is present at root
             if (root == nullptr || root->data == key)
@@ -84,6 +88,7 @@ class AVLTree{
             // Key is smaller than root's key
             return search(root->left, key);
         }
+        //searches an AVLTree based on name
         Node* search(Node*& root, const string& key){
             // Base Cases: root is null or key is present at root
             if (root == nullptr || root->data == key)
@@ -98,10 +103,12 @@ class AVLTree{
         }
 
     public:
+        //default constructor
         AVLTree(){
             root = nullptr;
             size = 0;
         }
+        //destructor empties tree
         ~AVLTree(){
 
         }
@@ -157,37 +164,37 @@ class AVLTree{
             case4(k1);
         }
 
-
+        //public insert that starts the recursive insert process
         void insert(const t& data){
             insert(data, this->root);
         }
 
+        //public inorder that starts the recursive inorder process
         void inorder(){
             inorder(this->root);
         }
-
+        //returns number of nodes
         int getSize(){
             return this->size;
         }
-
+        //checks if value exists in tree
         bool contains(const t& key){
             if(search(this->root, key) != nullptr){
                 return true;
             }
             return false;
         }
-
+        //checks if tree contains based on string value
         bool contains(const string& key){
-            if(search(this->root, key) != nullptr){
+            if(search(this->root, key) != nullptr)
                 return true;
-            }
             return false;
         }
-
+        //if it contains the value then returns the value
         t& getValue(const t& key){
             return (search(this->root, key))->data;
         }
-
+        //if it contains the value corresponding to the string then returns the value
         t& getValue(const string& key){
             return (search(this->root, key))->data;
         }

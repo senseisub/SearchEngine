@@ -8,22 +8,34 @@
 #include "InnerDoc.h"
 class Word {
 private:
+    //the word being saved
     string word;
+    //numbers of appearances in all documents
     int freq; //frequency of words in all documents
+    //tree of documents
     AVLTree<InnerDoc> docTree;
 
 public:
     Word();
+    //the only constructor to be used
     Word(string& newWord);
+    //utility function to increase frequency
     void increaseFreq();
+    //getters
     string getWord();
     int getFreq();
-    void setWord(string newWord);
-    void insertDoc(InnerDoc& doc);
-    void newDoc(string& documentID);
-    bool hasDocument(string& documentID);
-    void increaseDocumentFrequency(string& documentID);
     InnerDoc& getDocument(string& documentID);
+    //setters
+    void setWord(string newWord);
+    //inserts new document
+    void insertDoc(InnerDoc& doc);
+    //creates new document based on string
+    void newDoc(string& documentID);
+    //checks if docTree has document
+    bool hasDocument(string& documentID);
+    //increases the frequency count of certain document
+    void increaseDocumentFrequency(string& documentID);
+    //overloaded operators for AVLTree sorting
     bool operator == (const string& word) const;
     bool operator == (const Word& word) const;
     bool operator > (const Word& word) const;

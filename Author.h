@@ -8,15 +8,15 @@
 class Author{
     private:
         string name;
-        vector<Article*> articles;
+        vector<Article> articles;
     public:
         Author(){}
         Author(string);
         ~Author();
         void printCopy();
         string& getAuthorName();
-        vector<Article*>& getArticleList();
-        void addArticles(Article*& article);
+        vector<Article>& getArticleList();
+        void addArticles(Article& article);
         bool operator < (const Author& author) const;
         bool operator > (const Author& author) const;
         bool operator < (const string& author) const;
