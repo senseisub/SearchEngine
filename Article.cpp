@@ -9,6 +9,12 @@ Article::Article(string articleTitle, string printCopy, string datePublished, st
     this->datePublished = datePublished;
     this->articleTitle = articleTitle;
 }
+
+Article::Article(string articleTitle, string articleID){
+    this->articleID = articleID;
+    this->articleTitle = articleTitle;
+}
+
 string& Article::getPrintCopy(){
     return this->printCopy;
 }

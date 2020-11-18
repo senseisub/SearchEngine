@@ -14,7 +14,7 @@ class HashTable {
 private:
     int amountOfBuckets;
     AVLTree<Author>* table = nullptr; //initalized to nullptr;
-
+    int size;
 public:
     HashTable();
     HashTable(int buckets);
@@ -32,7 +32,11 @@ public:
 
     Author& searchForAuthor(string authorName); //search for author based on the name, return reference author
 
+    bool containsAuthor(string& authorName);
 
+    Author& operator[] (const string& author);
+
+    int getSize();
 };
 
 #endif //SEARCH_ENGINE_PLUSPLUS_HASHTABLE_H
