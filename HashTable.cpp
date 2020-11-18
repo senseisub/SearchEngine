@@ -7,11 +7,13 @@
 HashTable::HashTable() {
     amountOfBuckets = 10;
     table = new AVLTree<Author>[amountOfBuckets];
+    size = 0;
 }
 
 HashTable::HashTable(int buckets) {
     amountOfBuckets = buckets;
     table = new AVLTree<Author>[amountOfBuckets];
+    size = 0;
 }
 
 HashTable::~HashTable() {
@@ -22,6 +24,7 @@ void HashTable::insertAuthor(Author& name) {
     long long int hash = compute_hash(name.getAuthorName());
     int index = hashFunction(hash);
     table[index].insert(name);
+    this->size++;
 }
 
 void HashTable::deleteAuthor(int position) {
@@ -66,4 +69,14 @@ bool HashTable::containsAuthor(string& authorName){
     long long int hash = compute_hash(authorName);
     int index = hashFunction(hash);
     return table[index].contains(authorName);
+}
+
+Author& HashTable::operator[] (const string& author){
+    long long int hash = compute_hash(author);
+    int index = hashFunction(hash);
+    return table[index].getValue(author);
+}
+
+int HashTable::getSize(){
+    return this->size;
 }

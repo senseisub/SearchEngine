@@ -109,7 +109,7 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     } while (ss);
 }
 
-int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations){
+int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors){
     DIR *pDIR;
     struct dirent *entry;
     cout << "nah";
@@ -147,22 +147,28 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
 
                 //get Document ID
                 string documentID = d["paper_id"].GetString();
+                string title = d["metadata"]["title"].GetString();
+
 
                 //initializes string array
-                string* authors = new string[d["metadata"]["authors"].GetArray().Size()];
                 //if authors are empty
-                if(d["metadata"]["authors"].GetArray().Size() == 0){
-                    authors = new string[1];
-                    authors[0] = "N/A";
-                }
-                for(int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i ++){
+                Article* thisArticle = new Article(title, documentID);
+                for(int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i++){
                     string first = d["metadata"]["authors"].GetArray()[i]["first"].GetString();
                     string last = d["metadata"]["authors"].GetArray()[i]["last"].GetString();
                     //put first and last name in one word with no space
-                    authors[i] = first+last;
+                    string authorName =  first+last;
                     //tranforms to lowercase
-                    transform(authors[i].begin(), authors[i].end(), authors[i].begin(), ::tolower);
-                    cout << authors[i] << endl;
+                    transform(authorName.begin(), authorName.end(), authorName.begin(), ::tolower);
+                    if(authors.containsAuthor(authorName)){
+                        Author currentAuthor= authors[authorName];
+                        currentAuthor.addArticles(thisArticle);
+                    }
+                    else{
+                        Author currentAuthor(authorName);
+                        currentAuthor.addArticles(thisArticle);
+                        authors.insertAuthor(currentAuthor);
+                    }
                 }
                 for(int i = 0; i < d["abstract"].GetArray().Size(); i++) {
                     string temp = d["abstract"].GetArray()[i]["text"].GetString();
