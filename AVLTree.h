@@ -72,13 +72,25 @@ class AVLTree{
             cout << node->data << endl;
             inorder(node->right);
         }
-        Node* search(Node* root, const t& key){
+        Node* search(Node*& root, const t& key){
             // Base Cases: root is null or key is present at root
             if (root == nullptr || root->data == key)
                 return root;
 
             // Key is greater than root's key
             if (key > root->data)
+                return search(root->right, key);
+
+            // Key is smaller than root's key
+            return search(root->left, key);
+        }
+        Node* search(Node*& root, const string& key){
+            // Base Cases: root is null or key is present at root
+            if (root == nullptr || root->data == key)
+                return root;
+
+            // Key is greater than root's key
+            if (root->data < key)
                 return search(root->right, key);
 
             // Key is smaller than root's key
@@ -165,7 +177,18 @@ class AVLTree{
             return false;
         }
 
+        bool contains(const string& key){
+            if(search(this->root, key) != nullptr){
+                return true;
+            }
+            return false;
+        }
+
         t& getValue(const t& key){
+            return (search(this->root, key))->data;
+        }
+
+        t& getValue(const string& key){
             return (search(this->root, key))->data;
         }
 

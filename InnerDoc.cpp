@@ -8,7 +8,7 @@ InnerDoc::InnerDoc(){
     relativeFreq = 0;
 }
 
-InnerDoc::InnerDoc(string documentID) {
+InnerDoc::InnerDoc(string& documentID) {
     this->documentID = documentID;
     relativeFreq = 1; //same thing with word file, if it has a documentID, it should have atleast one freq right?
 }
@@ -16,9 +16,24 @@ void InnerDoc::increaseRelativeFreq(){
     relativeFreq++;
 }
 
-bool InnerDoc::operator<(InnerDoc& rhs) {
+bool InnerDoc::operator<(const InnerDoc& rhs) const{
     return this->documentID.compare(rhs.documentID)  > 0 ? true : false;
 }
-bool InnerDoc::operator>(InnerDoc& rhs) {
+bool InnerDoc::operator>(const InnerDoc& rhs) const{
     return this->documentID.compare(rhs.documentID)  < 0 ? true : false;
+}
+
+bool InnerDoc::operator == (const InnerDoc& doc) const{
+    return this->documentID.compare(doc.documentID)  == 0 ? true : false;
+}
+bool InnerDoc::operator == (const string& documentName) const{
+    return this->documentID.compare(documentName)  == 0 ? true : false;
+}
+
+bool InnerDoc::operator > (const string& documentName) const{
+    return this->documentID.compare(documentName)  > 0 ? true : false;
+}
+
+bool InnerDoc::operator < (const string& documentName) const{
+    return this->documentID.compare(documentName)  < 0 ? true : false;
 }
