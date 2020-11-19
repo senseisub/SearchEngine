@@ -72,17 +72,19 @@ class AVLTree{
                 return;
             }
             inorder(node->left);
-            cout << node->data.getID() << endl; // TODO: getID works but not what we want
+            cout << node->data << endl; // TODO: getID works but not what we want
             inorder(node->right);
         }
 
         void inorder15(Node*& node, int& count){
-            if(node == nullptr || count == 15){
+            if(node == nullptr || count > 13){ //13 ?????? why does this work
                 return;
             }
-            inorder(node->left);
+            inorder15(node->left, count);
+//            cout << count << endl;
+            count++;
             cout << node->data.getID() << endl;
-            inorder(node->right);
+            inorder15(node->right, count);
         }
         //searches AVLTree for key
         Node* search(Node*& root, const t& key){
