@@ -122,6 +122,8 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 char str[] = "../Documents/cs2341_data/";
                 strcat(str, entry->d_name);
                 cout << str << endl;
+                cout << realpath(str, NULL) << endl;
+
                 std::ifstream ifs{str};
                 if (!ifs.is_open()) {
                     std::cerr << "Could not open file for reading!\n";
@@ -132,10 +134,6 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
 
                 IStreamWrapper isw{ifs};
 
-                FILE *fp = fopen(str, type); // non-Windows use "r"
-
-                char readBuffer[262144];
-                FileReadStream is(fp, readBuffer, sizeof(readBuffer));
                 Document d;
                 d.ParseStream(isw);
                 StringBuffer buffer;
