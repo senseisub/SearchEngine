@@ -102,10 +102,10 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     } while (ss);
 }
 
-int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors){
+int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors, char* directory){
     DIR *pDIR;
     struct dirent *entry;
-    cout << "nah";
+    cout << "nah" << endl;
     if( pDIR=opendir("../Documents/cs2341_data") ) {
         cout << "found" << endl;
         int num = 0;
@@ -115,11 +115,14 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 num++;
                 // 1. Parse a JSON string into DOM.
                 char str[] = "../Documents/cs2341_data/";
-                strcat(str, entry->d_name);
-                cout << str << endl;
-                cout << realpath(str, NULL) << endl;
+                string fullname = str;
+                fullname += entry->d_name; //change from char* to string because json / strcat didnt accept string?
 
-                std::ifstream ifs{str};
+                cout << fullname << endl;
+                const char * c = fullname.c_str();
+                cout << realpath(c, NULL) << endl;
+
+                std::ifstream ifs{fullname};
                 if (!ifs.is_open()) {
                     std::cerr << "Could not open file for reading!\n";
                     return EXIT_FAILURE;
@@ -143,40 +146,52 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 //initializes string array
                 //if authors are empty
                 Article thisArticle(title, documentID);
-                for(int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i++){
+                for (int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i++) {
                     string first = d["metadata"]["authors"].GetArray()[i]["first"].GetString();
                     string last = d["metadata"]["authors"].GetArray()[i]["last"].GetString();
                     //put first and last name in one word with no space
-                    string authorName =  first+last;
+                    string authorName = first + last;
                     //tranforms to lowercase
                     transform(authorName.begin(), authorName.end(), authorName.begin(), ::tolower);
-                    if(authors.containsAuthor(authorName)){
-                        Author currentAuthor= authors[authorName];
+                    if (authors.containsAuthor(authorName)) {
+                        Author currentAuthor = authors[authorName];
                         currentAuthor.addArticles(thisArticle);
-                    }
-                    else{
+                    } else {
                         Author currentAuthor(authorName);
                         currentAuthor.addArticles(thisArticle);
                         authors.insertAuthor(currentAuthor);
                     }
                 }
-                for(int i = 0; i < d["abstract"].GetArray().Size(); i++) {
+                for (int i = 0; i < d["abstract"].GetArray().Size(); i++) {
                     string temp = d["abstract"].GetArray()[i]["text"].GetString();
                     istringstream ss(temp);
                     //reads through all words
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
-                for(int i = 0; i < d["body_text"].GetArray().Size(); i++) {
+                for (int i = 0; i < d["body_text"].GetArray().Size(); i++) {
                     string temp = d["body_text"].GetArray()[i]["text"].GetString();
                     istringstream ss(temp);
                     //reads through all words
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if(num == 2){
-                return 1;
+            if (num == 2) {
+                cout << " test " << endl;
+                return 0;
             }
         }
         closedir(pDIR);
+    }
+}
+
+bool treeContains(AVLTree<Word>& words, char* searchWord) {
+    string word = searchWord;
+    if (words.contains(word)) {
+        Word currentWord = words.getValue(word);
+        currentWord.printWordDocuments();
+        return true;
+    } else {
+  cout << "Word is not in any documents. Try again." << endl;
+        return false;
     }
 }

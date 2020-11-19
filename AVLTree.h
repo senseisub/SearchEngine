@@ -73,7 +73,16 @@ class AVLTree{
                 return;
             }
             inorder(node->left);
-            cout << node->data << endl;
+            cout << node->data.getID() << endl; // TODO: getID works but not what we want
+            inorder(node->right);
+        }
+
+        void inorder15(Node*& node, int& count){
+            if(node == nullptr || count == 15){
+                return;
+            }
+            inorder(node->left);
+            cout << node->data.getID() << endl;
             inorder(node->right);
         }
         void inorder(Node*& node, vector<t>& vals){
@@ -208,10 +217,15 @@ class AVLTree{
             return (search(this->root, key))->data;
         }
 
-        vector<t> toArrayInOrder(){
+        vector<t> toArrayInOrder() {
             vector<t> vals;
             inorder(this->root, vals);
             return vals;
+        }
+
+        void inorder15(){
+            int i = 0;
+            inorder15(this->root, i);
         }
 
 };

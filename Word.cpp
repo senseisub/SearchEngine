@@ -75,6 +75,10 @@ void Word::newDoc(string& documentID){
     docTree.insert(doc);
 };
 
-vector<InnerDoc> Word::getDocTreeInOrder(){
+vector<InnerDoc> Word::getDocTreeInOrder() {
     return docTree.toArrayInOrder();
+}
+
+void Word::printWordDocuments(){
+    this->docTree.inorder15();
 }
