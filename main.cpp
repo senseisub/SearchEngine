@@ -25,6 +25,7 @@ int main() {
     loadStopWords(stopWordFile, stopWords);
     fileParser(stopWords, allWords, stopWordAssociation, authors); //disassembly sig fault? runs on seuns machine but not this one
     //error is literally wherever data is handled when it is returning from function to main. function has no errors?
+    //clang problem?
     cout << "number of words : " << allWords.getSize() << endl;
     cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     cout << "number of authors : " << authors.getSize() << endl;
