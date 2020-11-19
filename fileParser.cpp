@@ -18,14 +18,7 @@
 
 using namespace rapidjson;
 
-char* type;
-#if defined _WIN32
-type = "rb";
-#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
-type = "r";
-#elif defined (__APPLE__)
-type = "r";
-#endif
+
 
 void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){ //Unordered set of stop words of O(1)
     std::string str;
@@ -110,7 +103,6 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     DIR *pDIR;
     struct dirent *entry;
     cout << "nah";
-    type = "rb";
     if( pDIR=opendir("../Documents/cs2341_data") ) {
         cout << "found" << endl;
         int num = 0;

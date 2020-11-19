@@ -28,6 +28,7 @@ int main() {
     cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     cout << "number of authors : " << authors.getSize() << endl;
     cout << "number of words that are stops : " << stopWords.size() << endl;
+    cout << "type of avltree : " << typeid(allWords).name() << endl;
     allWords.emptyTree();
     return 0;
 }
