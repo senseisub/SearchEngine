@@ -112,11 +112,12 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 num++;
                 // 1. Parse a JSON string into DOM.
                 char str[] = "../Documents/cs2341_data/";
-                strcat(str, entry->d_name);
+                string fullname = str;
+                fullname += entry->d_name; //change from char* to string because json / strcat didnt accept string?
                 cout << str << endl;
                 cout << realpath(str, NULL) << endl;
 
-                std::ifstream ifs{str};
+                std::ifstream ifs{fullname};
                 if (!ifs.is_open()) {
                     std::cerr << "Could not open file for reading!\n";
                     return EXIT_FAILURE;
