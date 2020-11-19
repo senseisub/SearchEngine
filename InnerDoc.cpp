@@ -37,3 +37,7 @@ bool InnerDoc::operator > (const string& documentName) const{
 bool InnerDoc::operator < (const string& documentName) const{
     return this->documentID.compare(documentName)  < 0 ? true : false;
 }
+
+string& InnerDoc::getID() {
+    return this->documentID;
+}

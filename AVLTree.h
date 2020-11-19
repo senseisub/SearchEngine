@@ -2,6 +2,7 @@
 // Created by seuns on 11/12/2020.
 //
 #include "iostream"
+#include <vector>
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_AVLTREE_H
 #define SEARCHENGINETEMPLATES_AVLTREE_H
@@ -74,6 +75,14 @@ class AVLTree{
             inorder(node->left);
             cout << node->data << endl;
             inorder(node->right);
+        }
+        void inorder(Node*& node, vector<t>& vals){
+            if(node == nullptr){
+                return;
+            }
+            inorder(node->left, vals);
+            vals.push_back(node->data);
+            inorder(node->right, vals);
         }
         //searches AVLTree for key
         Node* search(Node*& root, const t& key){
@@ -197,6 +206,12 @@ class AVLTree{
         //if it contains the value corresponding to the string then returns the value
         t& getValue(const string& key){
             return (search(this->root, key))->data;
+        }
+
+        vector<t> toArrayInOrder(){
+            vector<t> vals;
+            inorder(this->root, vals);
+            return vals;
         }
 
 };

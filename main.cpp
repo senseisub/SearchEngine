@@ -4,19 +4,7 @@
 #include "Functions.h"
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    AVLTree<int> tree;
-    tree.insert(10);
-    tree.insert(20);
-    tree.insert(30);
-    tree.insert(25);
-    tree.insert(22);
-    tree.insert(4);
-    tree.insert(6);
-    tree.insert(35);
-    tree.insert(21);
-    tree.insert(23);
-    tree.insert(24);
-    tree.inorder();
+    ofstream persistentFile("../persistentFile.txt");
     HashTable authors(20000);
     unordered_set<string> stopWords;
     AVLTree<Word> allWords;
@@ -29,6 +17,7 @@ int main() {
     cout << "number of authors : " << authors.getSize() << endl;
     cout << "number of words that are stops : " << stopWords.size() << endl;
     cout << "type of avltree : " << typeid(allWords).name() << endl;
+    createPersistentFile(persistentFile, allWords);
     allWords.emptyTree();
     return 0;
 }
