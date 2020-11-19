@@ -17,7 +17,7 @@ HashTable::HashTable(int buckets) {
 }
 
 HashTable::~HashTable() {
-    delete table;
+    delete[] table;
 }
 
 void HashTable::insertAuthor(Author& name) {

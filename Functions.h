@@ -13,4 +13,5 @@ using namespace std;
 #define SEARCHENGINETEMPLATES_FUNCTIONS_H
 int fileParser(unordered_set<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors);
 void loadStopWords(ifstream& stops, unordered_set<string>& stopWords);
+void createPersistentFile(ofstream& persistentIndex, AVLTree<Word>& words);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H

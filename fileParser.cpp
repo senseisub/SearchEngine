@@ -55,6 +55,9 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                     if(currentWord.hasDocument(documentID)){
                         currentWord.increaseDocumentFrequency(documentID);
                     }
+                    else{
+                        currentWord.newDoc(documentID);
+                    }
                     currentWord.increaseFreq();
                 }
                 else{
@@ -174,5 +177,6 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 return 1;
             }
         }
+        closedir(pDIR);
     }
 }
