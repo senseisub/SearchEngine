@@ -35,6 +35,7 @@ public:
     bool hasDocument(string& documentID);
     //increases the frequency count of certain document
     void increaseDocumentFrequency(string& documentID);
+    void printWordDocuments();
     //overloaded operators for AVLTree sorting
     bool operator == (const string& word) const;
     bool operator == (const Word& word) const;

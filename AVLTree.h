@@ -72,7 +72,16 @@ class AVLTree{
                 return;
             }
             inorder(node->left);
-            cout << node->data << endl;
+            cout << node->data.getID() << endl; // TODO: getID works but not what we want
+            inorder(node->right);
+        }
+
+        void inorder15(Node*& node, int& count){
+            if(node == nullptr || count == 15){
+                return;
+            }
+            inorder(node->left);
+            cout << node->data.getID() << endl;
             inorder(node->right);
         }
         //searches AVLTree for key
@@ -197,6 +206,11 @@ class AVLTree{
         //if it contains the value corresponding to the string then returns the value
         t& getValue(const string& key){
             return (search(this->root, key))->data;
+        }
+
+        void inorder15(){
+            int i = 0;
+            inorder15(this->root, i);
         }
 
 };
