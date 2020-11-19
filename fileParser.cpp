@@ -115,8 +115,8 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 string fullname = str;
                 fullname += entry->d_name; //change from char* to string because json / strcat didnt accept string?
                 cout << str << endl;
-                cout << realpath(str, NULL) << endl;
-
+                const char * c = fullname.c_str();
+                cout << realpath(c, NULL) << endl;
                 std::ifstream ifs{fullname};
                 if (!ifs.is_open()) {
                     std::cerr << "Could not open file for reading!\n";
