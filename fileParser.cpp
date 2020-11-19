@@ -140,39 +140,40 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 //initializes string array
                 //if authors are empty
                 Article thisArticle(title, documentID);
-                for(int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i++){
+                for (int i = 0; i < d["metadata"]["authors"].GetArray().Size(); i++) {
                     string first = d["metadata"]["authors"].GetArray()[i]["first"].GetString();
                     string last = d["metadata"]["authors"].GetArray()[i]["last"].GetString();
                     //put first and last name in one word with no space
-                    string authorName =  first+last;
+                    string authorName = first + last;
                     //tranforms to lowercase
                     transform(authorName.begin(), authorName.end(), authorName.begin(), ::tolower);
-                    if(authors.containsAuthor(authorName)){
-                        Author currentAuthor= authors[authorName];
+                    if (authors.containsAuthor(authorName)) {
+                        Author currentAuthor = authors[authorName];
                         currentAuthor.addArticles(thisArticle);
-                    }
-                    else{
+                    } else {
                         Author currentAuthor(authorName);
                         currentAuthor.addArticles(thisArticle);
                         authors.insertAuthor(currentAuthor);
                     }
                 }
-                for(int i = 0; i < d["abstract"].GetArray().Size(); i++) {
+                for (int i = 0; i < d["abstract"].GetArray().Size(); i++) {
                     string temp = d["abstract"].GetArray()[i]["text"].GetString();
                     istringstream ss(temp);
                     //reads through all words
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
-                for(int i = 0; i < d["body_text"].GetArray().Size(); i++) {
+                for (int i = 0; i < d["body_text"].GetArray().Size(); i++) {
                     string temp = d["body_text"].GetArray()[i]["text"].GetString();
                     istringstream ss(temp);
                     //reads through all words
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if(num == 2){
-                return 1;
+            if (num == 2) {
+                cout << " test " << endl;
+                return 0; //return is giving error??
             }
         }
+        closedir(pDIR);
     }
 }
