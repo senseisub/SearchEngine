@@ -74,3 +74,7 @@ void Word::newDoc(string& documentID){
     InnerDoc doc(documentID);
     docTree.insert(doc);
 };
+
+void Word::printWordDocuments(){
+    this->docTree.inorder15();
+}

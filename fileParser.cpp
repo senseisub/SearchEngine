@@ -99,10 +99,10 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     } while (ss);
 }
 
-int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors){
+int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors, char* directory){
     DIR *pDIR;
     struct dirent *entry;
-    cout << "nah";
+    cout << "nah" << endl;
     if( pDIR=opendir("../Documents/cs2341_data") ) {
         cout << "found" << endl;
         int num = 0;
@@ -114,7 +114,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 char str[] = "../Documents/cs2341_data/";
                 string fullname = str;
                 fullname += entry->d_name; //change from char* to string because json / strcat didnt accept string?
-                cout << str << endl;
+                cout << fullname << endl;
                 cout << realpath(str, NULL) << endl;
 
                 std::ifstream ifs{fullname};
@@ -172,9 +172,21 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
             }
             if (num == 2) {
                 cout << " test " << endl;
-                return 0; //return is giving error??
+                return 0;
             }
         }
         closedir(pDIR);
+    }
+}
+
+bool treeContains(AVLTree<Word>& words, char* searchWord) {
+    string word = searchWord;
+    if (words.contains(word)) {
+        Word currentWord = words.getValue(word);
+        currentWord.printWordDocuments();
+        return true;
+    } else {
+  cout << "Word is not in any documents. Try again." << endl;
+        return false;
     }
 }

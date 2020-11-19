@@ -18,6 +18,7 @@ public:
     InnerDoc(string& documentID);
     //utility function to increase frequency when the same word shows up again in the same document
     void increaseRelativeFreq();
+    string& getID();
     //overloaded operators for AVLTree sorting
     bool operator<(const InnerDoc& rhs) const;
     bool operator>(const InnerDoc& rhs) const;

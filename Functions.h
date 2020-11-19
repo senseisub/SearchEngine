@@ -11,6 +11,7 @@
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_FUNCTIONS_H
 #define SEARCHENGINETEMPLATES_FUNCTIONS_H
-int fileParser(unordered_set<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors);
+int fileParser(unordered_set<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors, char* directory);
 void loadStopWords(ifstream& stops, unordered_set<string>& stopWords);
+bool treeContains(AVLTree<Word>& words, char* searchWord);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
