@@ -31,9 +31,15 @@ int main() {
     cout << "number of authors : " << authors.getSize() << endl;
     cout << "number of words that are stops : " << stopWords.size() << endl;
     cout << "type of avltree : " << typeid(allWords).name() << endl;
-    //command line string
+    // 1) command line string
     //search documents for string
     //print documents ID
+    // 1.5) author hash table
+    // 2) search query, defining the AUTHOR word, the NOT word. user input handling
+    // 3) wants we get that and it works, then we do user interface, allow them to reset console, reset search, etc etc
+    // 4) index persistance
+    // 5)
+
     allWords.emptyTree();
     return 0;
 }
