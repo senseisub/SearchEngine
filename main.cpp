@@ -23,12 +23,16 @@ int main() {
     AVLTree<StopWordAssociation> stopWordAssociation;
     ifstream stopWordFile("../stopWords.txt");
     loadStopWords(stopWordFile, stopWords);
-    fileParser(stopWords, allWords, stopWordAssociation, authors);
+    fileParser(stopWords, allWords, stopWordAssociation, authors); //disassembly sig fault? runs on seuns machine but not this one
+    //error is literally wherever data is handled when it is returning from function to main. function has no errors?
     cout << "number of words : " << allWords.getSize() << endl;
     cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     cout << "number of authors : " << authors.getSize() << endl;
     cout << "number of words that are stops : " << stopWords.size() << endl;
     cout << "type of avltree : " << typeid(allWords).name() << endl;
+    //command line string
+    //search documents for string
+    //print documents ID
     allWords.emptyTree();
     return 0;
 }
