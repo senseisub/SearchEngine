@@ -54,6 +54,8 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                     Word currentWord = words.getValue(currentStopWord.getWordAssociation());
                     if(currentWord.hasDocument(documentID)){
                         currentWord.increaseDocumentFrequency(documentID);
+                    } else {
+                        currentWord.newDoc(documentID);
                     }
                     currentWord.increaseFreq();
                 }
@@ -172,7 +174,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if (num == 2) {
+            if (num == 100) {
                 cout << " test " << endl;
                 return 0;
             }
@@ -183,6 +185,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
 
 bool treeContains(AVLTree<Word>& words, char* searchWord) {
     string word = searchWord;
+    cout << word << endl;
     if (words.contains(word)) {
         Word currentWord = words.getValue(word);
         currentWord.printWordDocuments();

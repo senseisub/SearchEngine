@@ -44,8 +44,8 @@ int main(int argc, char** argv) {
     // 3) wants we get that and it works, then we do user interface, allow them to reset console, reset search, etc etc
     // 4) index persistance
     // 5)
-    allWords.emptyTree();
-    treeContains(allWords, searchWord);
+        treeContains(allWords, searchWord);
+        allWords.emptyTree();
 }
     return 0;
 }

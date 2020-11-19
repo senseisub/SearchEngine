@@ -76,5 +76,6 @@ void Word::newDoc(string& documentID){
 };
 
 void Word::printWordDocuments(){
+//    cout << docTree.getSize() << endl;
     this->docTree.inorder15();
 }
