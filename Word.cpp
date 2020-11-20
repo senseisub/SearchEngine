@@ -80,5 +80,6 @@ vector<InnerDoc> Word::getDocTreeInOrder() {
 }
 
 void Word::printWordDocuments(){
+//    cout << docTree.getSize() << endl;
     this->docTree.inorder15();
 }
