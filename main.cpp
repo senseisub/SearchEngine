@@ -7,11 +7,11 @@ int main(int argc, char** argv) {
     char* directory;
     char *searchWord;
     if (argc == 1) {
-        char* directory = "../Documents/cs2341_data";
+        directory = "../Documents/cs2341_data";
     }
     if (argc == 3) {
-        char *searchWord = argv[2];
-        char *directory = argv[1];
+        searchWord = argv[2];
+        directory = argv[1];
     }
     HashTable authors(20000);
     unordered_set<string> stopWords;
@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     // 4) index persistance
     // 5)
     if(argc == 3){
-        treeContains(allWords, searchWord);
+        treeContains(allWords, searchWord, directory);
     }
     allWords.emptyTree();
     return 0;
