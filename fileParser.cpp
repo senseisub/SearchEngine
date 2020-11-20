@@ -102,11 +102,11 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     } while (ss);
 }
 
-int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors, char* directory){
+int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors, char*& directory){
     DIR *pDIR;
     struct dirent *entry;
-    cout << "nah" << endl;
-    if( pDIR=opendir("../Documents/cs2341_data") ) {
+    cout << directory << endl;
+    if( pDIR=opendir(directory) ) {
         cout << "found" << endl;
         int num = 0;
 
@@ -114,7 +114,9 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
             if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
                 num++;
                 // 1. Parse a JSON string into DOM.
-                char str[] = "../Documents/cs2341_data/";
+                char str[100];
+                strcpy(str, directory);
+                strcat(str, "/");
                 string fullname = str;
                 fullname += entry->d_name; //change from char* to string because json / strcat didnt accept string?
 
@@ -184,7 +186,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     }
 }
 
-bool treeContains(AVLTree<Word>& words, char* searchWord) {
+bool treeContains(AVLTree<Word>& words, char* searchWord, char*& directory) {
     string word = searchWord;
     cout << word << endl;
     if (words.contains(word)) {
@@ -192,7 +194,7 @@ bool treeContains(AVLTree<Word>& words, char* searchWord) {
         currentWord.printWordDocuments();
         return true;
     } else {
-  cout << "Word is not in any documents. Try again." << endl;
+        cout << "Word is not in any documents. Try again." << endl;
         return false;
     }
 }

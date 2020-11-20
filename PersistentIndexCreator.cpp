@@ -11,8 +11,13 @@ void createPersistentFile(ofstream& persistentIndex, AVLTree<Word>& words){
     for(Word& currentWord : wordList){
         persistentIndex << currentWord.getWord() << ": ";
         vector<InnerDoc> docList = currentWord.getDocTreeInOrder();
+        int size = 1;
         for(InnerDoc& doc : docList){
-            persistentIndex << doc.getID() << ", ";
+            if(size == docList.size())
+                persistentIndex << doc.getID() ;
+            else
+                persistentIndex << doc.getID() << ", ";
+            size++;
         }
         persistentIndex << endl;
     }
