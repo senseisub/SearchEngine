@@ -102,7 +102,7 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     } while (ss);
 }
 
-int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable& authors, char*& directory){
+int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author>& authors, char*& directory){
     DIR *pDIR;
     struct dirent *entry;
     cout << directory << endl;
@@ -191,7 +191,7 @@ bool treeContains(AVLTree<Word>& words, char* searchWord, char*& directory) {
     cout << word << endl;
     if (words.contains(word)) {
         Word currentWord = words.getValue(word);
-        currentWord.printWordDocuments();
+        currentWord.printWordDocuments(directory);
         return true;
     } else {
         cout << "Word is not in any documents. Try again." << endl;
