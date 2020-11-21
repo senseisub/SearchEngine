@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
         searchWord = argv[2];
         directory = argv[1];
     }
-    HashTable authors(20000);
+    HashTable<string, Author> authors(20000);
     unordered_set<string> stopWords;
     ofstream persistentFile("../persistentFile.txt");
     AVLTree<Word> allWords;
@@ -25,7 +25,6 @@ int main(int argc, char** argv) {
     cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     cout << "number of authors : " << authors.getSize() << endl;
     cout << "number of words that are stops : " << stopWords.size() << endl;
-    cout << "type of avltree : " << typeid(allWords).name() << endl;
     createPersistentFile(persistentFile, allWords);
     // 1) command line string
     //search documents for string
@@ -38,6 +37,7 @@ int main(int argc, char** argv) {
     if(argc == 3){
         treeContains(allWords, searchWord, directory);
     }
-    allWords.emptyTree();
+    allWords.forWords();
+    authors.emptyAVLs();
     return 0;
 }

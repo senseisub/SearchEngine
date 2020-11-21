@@ -3,6 +3,8 @@
 //
 #include "iostream"
 #include <vector>
+#include<cstdlib>
+#include<cstring>
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_AVLTREE_H
 #define SEARCHENGINETEMPLATES_AVLTREE_H
@@ -32,10 +34,16 @@ class AVLTree{
             emptyTree(currentNode->right);
             delete currentNode;
             currentNode = nullptr;
-//            if(currentNode->left == nullptr && currentNode->right == nullptr) {
-//                delete currentNode;
-//                currentNode = nullptr;
-//            }
+        }
+
+        void emptyTreeForWord(Node*& currentNode){
+            if(currentNode == nullptr)
+                return;
+            emptyTree(currentNode->left);
+            emptyTree(currentNode->right);
+            currentNode->data.wipeDocuments();
+            delete currentNode;
+            currentNode = nullptr;
         }
         //recursive insert function
         void insert(const t& data, Node*& node){
@@ -77,15 +85,21 @@ class AVLTree{
             inorder(node->right);
         }
 
-        void inorder15(Node*& node, int& count){
+        void inorder15(Node*& node, int& count, char* documentPath){
             if(node == nullptr || count > 13){ //13 ?????? why does this work
                 return;
             }
-            inorder15(node->left, count);
-//            cout << count << endl;
+            this->inorder15(node->left, count, documentPath);
             count++;
-            cout << node->data.getID() << endl;
-            inorder15(node->right, count);
+            if(count > 14){
+                return;
+            }
+            char initial[300];
+            strcpy(initial, documentPath);
+            const char* tempDoc = ("/"+ node->data.getID()+".json").c_str();
+            strcat(initial, tempDoc);
+                cout << node->data.getID() << "\n\tLocation: " << realpath(initial, NULL) << endl << endl;
+            this->inorder15(node->right, count, documentPath);
         }
         void inorder(Node*& node, vector<t>& vals){
             if(node == nullptr){
@@ -225,9 +239,13 @@ class AVLTree{
             return vals;
         }
 
-        void inorder15(){
+        void inorder15(char*& documentPath){
             int i = 0;
-            inorder15(this->root, i);
+            inorder15(this->root, i, documentPath);
+        }
+
+        void forWords(){
+            emptyTreeForWord(this->root);
         }
 
 };
