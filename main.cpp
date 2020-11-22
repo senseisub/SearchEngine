@@ -1,7 +1,8 @@
 #include <iostream>
+#include "Functions.h"
 #include "AVLTree.h"
 #include "Author.h"
-#include "Functions.h"
+
 
 int main(int argc, char** argv) {
     char* directory;
@@ -13,8 +14,8 @@ int main(int argc, char** argv) {
         searchWord = argv[2];
         directory = argv[1];
     }
-    HashTable<string, Author> authors(20000);
-    unordered_set<string> stopWords;
+    HashTable<string, Author> authors(19999);
+    HashSet<string> stopWords(499);
     ofstream persistentFile("../persistentFile.txt");
     AVLTree<Word> allWords;
     AVLTree<StopWordAssociation> stopWordAssociation;
@@ -24,7 +25,7 @@ int main(int argc, char** argv) {
     cout << "number of words : " << allWords.getSize() << endl;
     cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     cout << "number of authors : " << authors.getSize() << endl;
-    cout << "number of words that are stops : " << stopWords.size() << endl;
+    cout << "number of words that are stops : " << stopWords.getSize() << endl;
     createPersistentFile(persistentFile, allWords);
     // 1) command line string
     //search documents for string
@@ -39,5 +40,7 @@ int main(int argc, char** argv) {
     }
     allWords.forWords();
     authors.emptyAVLs();
+    stopWords.emptyAVLs();
+//    showBasicInputUI();
     return 0;
 }

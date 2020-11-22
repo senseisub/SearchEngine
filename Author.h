@@ -12,7 +12,6 @@ class Author{
     public:
         Author(){}
         Author(string);
-        ~Author();
         void printCopy();
         string& getAuthorName();
         vector<Article>& getArticleList();

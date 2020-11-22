@@ -20,14 +20,14 @@ using namespace rapidjson;
 
 
 
-void loadStopWords(ifstream& stops, unordered_set<string>& stopWords){ //Unordered set of stop words of O(1)
+void loadStopWords(ifstream& stops, HashSet<string>& stopWords){ //Unordered set of stop words of O(1)
     std::string str;
     while(stops >> str) {
         stopWords.insert(str);
     }
 }
 
-void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, istringstream& ss, string& documentID){
+void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, istringstream& ss, string& documentID){
     do {
         // Read a word
         string word;
@@ -43,9 +43,10 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
             }
         }
 
+        transform(word.begin(), word.end(), word.begin(), ::tolower);
 
         //if not a stop word
-        if (stopWords.find(word) == stopWords.end()) {
+        if (!stopWords.contains(word)) {
             if(stopWordAssociations.contains(word)){
                 //if stop word association exists then get the stemmed word associated with it
                 StopWordAssociation currentStopWord = stopWordAssociations.getValue(word);
@@ -73,7 +74,6 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                 //stems word
                 Porter2Stemmer::stem(word);
                 //both stemmed and non-stemmed words transformed to lowercase
-                transform(word.begin(), word.end(), word.begin(), ::tolower);
                 transform(originalWord.begin(), originalWord.end(), originalWord.begin(), ::tolower);
 
                 //new stop word association with non-stemmed word and stemmed-word associate
@@ -102,7 +102,7 @@ void parseBody(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     } while (ss);
 }
 
-int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author>& authors, char*& directory){
+int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author>& authors, char*& directory){
     DIR *pDIR;
     struct dirent *entry;
     cout << directory << endl;
@@ -186,7 +186,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
     }
 }
 
-bool treeContains(AVLTree<Word>& words, char* searchWord, char*& directory) {
+bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory) {
     string word = searchWord;
     cout << word << endl;
     if (words.contains(word)) {

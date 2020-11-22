@@ -110,7 +110,7 @@ class AVLTree{
             inorder(node->right, vals);
         }
         //searches AVLTree for key
-        Node* search(Node*& root, const t& key){
+        Node* search(Node*& root, const t& key, const int& differ){
             // Base Cases: root is null or key is present at root
             if (root == nullptr || root->data == key)
                 return root;
@@ -134,6 +134,20 @@ class AVLTree{
 
             // Key is smaller than root's key
             return search(root->left, key);
+        }
+
+        //searches an AVLTree based on name
+        Node* search(Node*& root, const string& key, const bool& set){
+            // Base Cases: root is null or key is present at root
+            if (root == nullptr || root->data == key)
+                return root;
+
+            // Key is greater than root's key
+            if (root->data < key)
+                return search(root->right, key, set);
+
+            // Key is smaller than root's key
+            return search(root->left, key, set);
         }
 
     public:
@@ -212,8 +226,8 @@ class AVLTree{
             return this->size;
         }
         //checks if value exists in tree
-        bool contains(const t& key){
-            if(search(this->root, key) != nullptr){
+        bool containsVal(const t& key){
+            if(search(this->root, key, 3) != nullptr){
                 return true;
             }
             return false;
@@ -225,8 +239,8 @@ class AVLTree{
             return false;
         }
         //if it contains the value then returns the value
-        t& getValue(const t& key){
-            return (search(this->root, key))->data;
+        t& getObjValue(const t& key){
+            return (search(this->root, key, 3))->data;
         }
         //if it contains the value corresponding to the string then returns the value
         t& getValue(const string& key){
@@ -246,6 +260,12 @@ class AVLTree{
 
         void forWords(){
             emptyTreeForWord(this->root);
+        }
+
+        bool containsForSet(const t& key){
+            if(search(this->root, key, true) != nullptr)
+                return true;
+            return false;
         }
 
 };
