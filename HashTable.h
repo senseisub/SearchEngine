@@ -36,7 +36,7 @@ private:
             bool operator == (const string& duo) const{ return (this->first == duo); };
 
     };
-    AVLTree<Duo>* table = nullptr; //initalized to nullptr;
+    AVLTree<Duo>* table;
 
 public:
     //default constructor initializes table to 10 values
