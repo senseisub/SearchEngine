@@ -5,6 +5,7 @@
 
 
 int main(int argc, char** argv) {
+    cout << "hello" << endl;
     char* directory;
     char *searchWord;
     if (argc == 1) {

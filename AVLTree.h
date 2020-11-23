@@ -91,14 +91,15 @@ class AVLTree{
             }
             this->inorder15(node->left, count, documentPath);
             count++;
-            if(count > 14){
-                return;
-            }
+            cout << count << endl;
             char initial[300];
             strcpy(initial, documentPath);
             const char* tempDoc = ("/"+ node->data.getID()+".json").c_str();
             strcat(initial, tempDoc);
                 cout << node->data.getID() << "\n\tLocation: " << realpath(initial, NULL) << endl << endl;
+//            if(count > 14){
+//                return;
+//            }
             this->inorder15(node->right, count, documentPath);
         }
         void inorder(Node*& node, vector<t>& vals){
