@@ -158,14 +158,14 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     string authorName = first + last;
                     //tranforms to lowercase
                     transform(authorName.begin(), authorName.end(), authorName.begin(), ::tolower);
-                    if (authors.containsAuthor(authorName)) {
-                        Author currentAuthor = authors[authorName];
-                        currentAuthor.addArticles(thisArticle);
-                    } else {
-                        Author currentAuthor(authorName);
-                        currentAuthor.addArticles(thisArticle);
-                        authors.insertAuthor(currentAuthor);
-                    }
+//                    if (authors.containsAuthor(authorName)) {
+//                        Author currentAuthor = authors[authorName];
+//                        currentAuthor.addArticles(thisArticle);
+//                    } else {
+//                        Author currentAuthor(authorName);
+//                        currentAuthor.addArticles(thisArticle);
+//                        authors.insertAuthor(currentAuthor);
+//                    }
                 }
                 for (int i = 0; i < d["abstract"].GetArray().Size(); i++) {
                     string temp = d["abstract"].GetArray()[i]["text"].GetString();
