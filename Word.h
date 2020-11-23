@@ -42,6 +42,8 @@ public:
     void printWordDocuments(char*& documentPath);
     //deletes all documents in document tree
     void wipeDocuments();
+
+    int getDocTreeSize();
     //overloaded operators for AVLTree sorting
     bool operator == (const string& word) const;
     bool operator == (const Word& word) const;
