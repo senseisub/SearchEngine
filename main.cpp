@@ -5,7 +5,6 @@
 
 
 int main(int argc, char** argv) {
-    cout << "hello" << endl;
     char* directory;
     char *searchWord;
     if (argc == 1) {
@@ -23,10 +22,10 @@ int main(int argc, char** argv) {
     ifstream stopWordFile("../stopWords.txt");
     loadStopWords(stopWordFile, stopWords);
     fileParser(stopWords, allWords, stopWordAssociation, authors, directory);
-    cout << "number of words : " << allWords.getSize() << endl;
-    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
-    cout << "number of authors : " << authors.getSize() << endl;
-    cout << "number of words that are stops : " << stopWords.getSize() << endl;
+//    cout << "number of words : " << allWords.getSize() << endl;
+//    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
+//    cout << "number of authors : " << authors.getSize() << endl;
+//    cout << "number of words that are stops : " << stopWords.getSize() << endl;
     createPersistentFile(persistentFile, allWords);
     // 1) command line string
     //search documents for string
@@ -40,6 +39,7 @@ int main(int argc, char** argv) {
         treeContains(allWords, searchWord, directory);
     }
     allWords.forWords();
+    stopWordAssociation.emptyTree();
     authors.emptyAVLs();
     stopWords.emptyAVLs();
 //    showBasicInputUI();

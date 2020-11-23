@@ -7,7 +7,6 @@
 void createPersistentFile(ofstream& persistentIndex, AVLTree<Word>& words){
     persistentIndex << "start" << endl;
     vector<Word> wordList(words.toArrayInOrder());
-    cout << "vector1 size: " << wordList.size() << endl;
     for(Word& currentWord : wordList){
         persistentIndex << currentWord.getWord() << ": ";
         vector<InnerDoc> docList = currentWord.getDocTreeInOrder();
