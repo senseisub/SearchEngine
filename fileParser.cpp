@@ -43,20 +43,25 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
             }
         }
 
+
         transform(word.begin(), word.end(), word.begin(), ::tolower);
+
 
         //if not a stop word
         if (!stopWords.contains(word)) {
             if(stopWordAssociations.contains(word)){
+
                 //if stop word association exists then get the stemmed word associated with it
                 StopWordAssociation currentStopWord = stopWordAssociations.getValue(word);
                 if(words.contains(currentStopWord.getWordAssociation())){
                     //gets the word object and increments the document frequency and word frequency
                     Word currentWord = words.getValue(currentStopWord.getWordAssociation());
                     if(currentWord.hasDocument(documentID)){
+
                         currentWord.increaseDocumentFrequency(documentID);
                     }
                     else{
+
                         currentWord.newDoc(documentID);
                     }
                     currentWord.increaseFreq();
@@ -69,15 +74,15 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                 }
             }
             else {
+
                 //string before it gets stemmed
                 string originalWord = word;
                 //stems word
                 Porter2Stemmer::stem(word);
-                //both stemmed and non-stemmed words transformed to lowercase
-                transform(originalWord.begin(), originalWord.end(), originalWord.begin(), ::tolower);
 
                 //new stop word association with non-stemmed word and stemmed-word associate
                 StopWordAssociation newStopWord(originalWord, word);
+
                 stopWordAssociations.insert(newStopWord);
 
 
@@ -100,7 +105,6 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                 }
             }
         }
-
         // While there is more to read
     } while (ss);
 }
@@ -180,9 +184,9 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-//            if (num == 1000) {
-//                return 0;
-//            }
+            if (num == 100) {
+                return 0;
+            }
         }
         closedir(pDIR);
     }
@@ -195,6 +199,7 @@ bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory) {
     string word = searchWord;
     cout << endl;
     cout<< "Searching for " << word << ". . ." << endl << endl;
+    Porter2Stemmer::stem(word);
     if (words.contains(word)) {
         Word currentWord = words.getValue(word);
         currentWord.printWordDocuments(directory);

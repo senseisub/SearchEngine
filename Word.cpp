@@ -87,3 +87,7 @@ void Word::printWordDocuments(char*& documentPath){
 void Word::wipeDocuments() {
     this->docTree.emptyTree();
 }
+
+int Word::getDocTreeSize() {
+    return docTree.getSize();
+}
