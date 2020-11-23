@@ -174,7 +174,7 @@ int fileParser(unordered_set<string>& stopWords, AVLTree<Word>& words, AVLTree<S
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if (num == 100) {
+            if (num == 1000) {
                 cout << " test " << endl;
                 return 0;
             }
