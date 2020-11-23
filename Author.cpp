@@ -7,9 +7,7 @@
 Author::Author(string authorName){
     this->name = authorName;
 }
-Author::~Author(){
 
-}
 void Author::printCopy(){
 
 }

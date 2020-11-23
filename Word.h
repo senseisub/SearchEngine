@@ -6,6 +6,7 @@
 #define SEARCH_ENGINE_PLUSPLUS_WORD_H
 #include "AVLTree.h"
 #include "InnerDoc.h"
+#include <vector>
 class Word {
 private:
     //the word being saved
@@ -35,7 +36,12 @@ public:
     bool hasDocument(string& documentID);
     //increases the frequency count of certain document
     void increaseDocumentFrequency(string& documentID);
-    void printWordDocuments();
+    //returns a vector of the documents in the tree in order
+    vector<InnerDoc> getDocTreeInOrder();
+    //prints all documents in word in order
+    void printWordDocuments(char*& documentPath);
+    //deletes all documents in document tree
+    void wipeDocuments();
     //overloaded operators for AVLTree sorting
     bool operator == (const string& word) const;
     bool operator == (const Word& word) const;
