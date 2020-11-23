@@ -17,10 +17,10 @@ void InnerDoc::increaseRelativeFreq(){
 }
 
 bool InnerDoc::operator<(const InnerDoc& rhs) const{
-    return this->documentID.compare(rhs.documentID)  > 0 ? true : false;
+    return this->documentID.compare(rhs.documentID)  < 0 ? true : false;
 }
 bool InnerDoc::operator>(const InnerDoc& rhs) const{
-    return this->documentID.compare(rhs.documentID)  < 0 ? true : false;
+    return this->documentID.compare(rhs.documentID)  > 0 ? true : false;
 }
 
 bool InnerDoc::operator == (const InnerDoc& doc) const{

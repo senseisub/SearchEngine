@@ -87,6 +87,9 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     if(currentWord.hasDocument(documentID)){
                         currentWord.increaseDocumentFrequency(documentID);
                     }
+                    else{
+                        currentWord.newDoc(documentID);
+                    }
                     currentWord.increaseFreq();
                 }
                 else{
@@ -120,9 +123,9 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                 string fullname = str;
                 fullname += entry->d_name; //change from char* to string because json / strcat didnt accept string?
 
-                cout << fullname << endl;
+//                cout << fullname << endl;
                 const char * c = fullname.c_str();
-                cout << realpath(c, NULL) << endl;
+//                cout << realpath(c, NULL) << endl;
 
                 std::ifstream ifs{fullname};
                 if (!ifs.is_open()) {
@@ -177,7 +180,7 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if (num == 10) {
+            if (num == 1000) {
                 cout << " test " << endl;
                 return 0;
             }

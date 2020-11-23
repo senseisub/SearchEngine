@@ -21,18 +21,18 @@ class HashSet{
         HashSet(int size){
             amountOfBuckets = size;
             table = new AVLTree<t>[amountOfBuckets];
-            size = 0;
+            this->size = 0;
         }
         //default insert function, checks for the variable type
         void insert(const t& value){
             long long int hash = 0;
-            if (strcmp(typeid(value).name(), "NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE") ==0) {
+//            if (strcmp(typeid(value).name(), "NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE") ==0) {
                 hash = compute_hash(value);
-            }
-            else {
-                std::hash<t> hasher;
-                hash = hasher(value);
-            }
+//            }
+//            else {
+//                std::hash<t> hasher;
+//                hash = hasher(value);
+//            }
             int index = hashFunction(hash);
             table[index].insert(value);
             this->size++;
@@ -67,12 +67,12 @@ class HashSet{
         //checks if author exists
         bool contains(const t& value){
             long long int hash = 0;
-            if (strcmp(typeid(value).name(), "NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE") ==0)
+//            if (strcmp(typeid(value).name(), "NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE") ==0)
                 hash = compute_hash(value);
-            else {
-                std::hash<t> hasher;
-                hash = hasher(value);
-            }
+//            else {
+//                std::hash<t> hasher;
+//                hash = hasher(value);
+//            }
             int index = hashFunction(hash);
             return table[index].containsForSet(value);
         }
