@@ -2,6 +2,9 @@
 // Created by seuns on 11/12/2020.
 //
 #include "iostream"
+#include <vector>
+#include<cstdlib>
+#include<cstring>
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_AVLTREE_H
 #define SEARCHENGINETEMPLATES_AVLTREE_H
@@ -31,10 +34,16 @@ class AVLTree{
             emptyTree(currentNode->right);
             delete currentNode;
             currentNode = nullptr;
-//            if(currentNode->left == nullptr && currentNode->right == nullptr) {
-//                delete currentNode;
-//                currentNode = nullptr;
-//            }
+        }
+
+        void emptyTreeForWord(Node*& currentNode){
+            if(currentNode == nullptr)
+                return;
+            emptyTree(currentNode->left);
+            emptyTree(currentNode->right);
+            currentNode->data.wipeDocuments();
+            delete currentNode;
+            currentNode = nullptr;
         }
         //recursive insert function
         void insert(const t& data, Node*& node){
@@ -76,18 +85,33 @@ class AVLTree{
             inorder(node->right);
         }
 
-        void inorder15(Node*& node, int& count){
+        void inorder15(Node*& node, int& count, char* documentPath){
             if(node == nullptr || count > 13){ //13 ?????? why does this work
                 return;
             }
-            inorder15(node->left, count);
-//            cout << count << endl;
+            this->inorder15(node->left, count, documentPath);
             count++;
-            cout << node->data.getID() << endl;
-            inorder15(node->right, count);
+            if(count > 15){
+                return;
+            }
+            cout << count << endl;
+            char initial[300];
+            strcpy(initial, documentPath);
+            const char* tempDoc = ("/"+ node->data.getID()+".json").c_str();
+            strcat(initial, tempDoc);
+                cout << node->data.getID() << "\n\tLocation: " << realpath(initial, NULL) << endl << endl;
+            this->inorder15(node->right, count, documentPath);
+        }
+        void inorder(Node*& node, vector<t>& vals){
+            if(node == nullptr){
+                return;
+            }
+            inorder(node->left, vals);
+            vals.push_back(node->data);
+            inorder(node->right, vals);
         }
         //searches AVLTree for key
-        Node* search(Node*& root, const t& key){
+        Node* search(Node*& root, const t& key, const int& differ){
             // Base Cases: root is null or key is present at root
             if (root == nullptr || root->data == key)
                 return root;
@@ -111,6 +135,20 @@ class AVLTree{
 
             // Key is smaller than root's key
             return search(root->left, key);
+        }
+
+        //searches an AVLTree based on name
+        Node* search(Node*& root, const string& key, const bool& set){
+            // Base Cases: root is null or key is present at root
+            if (root == nullptr || root->data == key)
+                return root;
+
+            // Key is greater than root's key
+            if (root->data < key)
+                return search(root->right, key, set);
+
+            // Key is smaller than root's key
+            return search(root->left, key, set);
         }
 
     public:
@@ -189,8 +227,8 @@ class AVLTree{
             return this->size;
         }
         //checks if value exists in tree
-        bool contains(const t& key){
-            if(search(this->root, key) != nullptr){
+        bool containsVal(const t& key){
+            if(search(this->root, key, 3) != nullptr){
                 return true;
             }
             return false;
@@ -202,17 +240,33 @@ class AVLTree{
             return false;
         }
         //if it contains the value then returns the value
-        t& getValue(const t& key){
-            return (search(this->root, key))->data;
+        t& getObjValue(const t& key){
+            return (search(this->root, key, 3))->data;
         }
         //if it contains the value corresponding to the string then returns the value
         t& getValue(const string& key){
             return (search(this->root, key))->data;
         }
 
-        void inorder15(){
+        vector<t> toArrayInOrder() {
+            vector<t> vals;
+            inorder(this->root, vals);
+            return vals;
+        }
+
+        void inorder15(char*& documentPath){
             int i = 0;
-            inorder15(this->root, i);
+            inorder15(this->root, i, documentPath);
+        }
+
+        void forWords(){
+            emptyTreeForWord(this->root);
+        }
+
+        bool containsForSet(const t& key){
+            if(search(this->root, key, true) != nullptr)
+                return true;
+            return false;
         }
 
 };

@@ -75,7 +75,15 @@ void Word::newDoc(string& documentID){
     docTree.insert(doc);
 };
 
-void Word::printWordDocuments(){
+vector<InnerDoc> Word::getDocTreeInOrder() {
+    return docTree.toArrayInOrder();
+}
+
+void Word::printWordDocuments(char*& documentPath){
 //    cout << docTree.getSize() << endl;
-    this->docTree.inorder15();
+    this->docTree.inorder15(documentPath);
+}
+
+void Word::wipeDocuments() {
+    this->docTree.emptyTree();
 }
