@@ -184,9 +184,9 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if (num == 100) {
-                return 0;
-            }
+//            if (num == 100) {
+//                return 0;
+//            }
         }
         closedir(pDIR);
     }
