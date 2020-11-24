@@ -18,6 +18,10 @@ int fileParser(HashSet<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssoc
 void loadStopWords(ifstream& stops, HashSet<string>& stopWords);
 void createPersistentFile(ofstream& persistentIndex, AVLTree<Word>& words);
 bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory);
+
+// UI
 void showBasicInputUI();
+
+
 void clearConsole();
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
