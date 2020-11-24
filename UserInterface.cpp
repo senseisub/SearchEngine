@@ -7,16 +7,28 @@ void showBasicInputUI(){
     cout << "Brandon and Seun Search Engine" << endl;
     cout << "||========================================||" << endl;
     cout << "||                                        ||" << endl;
-    cout << "What would you like to do?" << endl;
-    cout << "Press 1 to search, press 2 to open persistent file index:";
+    cout << "Reparse/populate index : 1 " << endl;
+    cout << "Open persistance file : 2 " << endl;
+    cout << "Or enter your query below: " << endl;
+    cout << "||========================================||" << endl;
+    cout << "||                                        ||" << endl;
+
     string input;
     cin >> input;
     if (input == "1") {
-
+       cout <<  "Reparsing index...." << endl;
     }
     if (input == "2") {
-
+        cout << "Opening persistance file...." << endl;
+        //printing just incase this is what he wants
+        ifstream myfile;
+        string output;
+        myfile.open("persistentFile.txt");
+        myfile >> output;
+        cout << output;
+        myfile.close();
     }
+    // otherwise input word becomes search word with query BOOLs, AND OR AUTHOR NOT
     if(input == "clear")
         clearConsole();
 }
