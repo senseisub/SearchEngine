@@ -12,6 +12,7 @@ void showBasicInputUI(){
     if(input == "clear")
         clearConsole();
 }
+
 void clearConsole(){
     #if defined _WIN32
         system("cls");
