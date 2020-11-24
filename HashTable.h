@@ -59,12 +59,12 @@ public:
     void insert(const key& keyVal, const value& valueVal){
         long long int hash = 0;
         std::cout << typeid(keyVal).name() << std::endl;
-        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
+//        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
             hash = compute_hash(keyVal);
-        else {
-            std::hash<key> hasher;
-            hash = hasher(keyVal);
-        }
+//        else {
+//            std::hash<key> hasher;
+//            hash = hasher(keyVal);
+//        }
         int index = hashFunction(hash);
         Duo duo(keyVal, valueVal);
         table[index].insert(duo);
@@ -128,12 +128,12 @@ public:
     //get operator
     value& operator[] (const key& keyVal){
         long long int hash = 0;
-        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
+//        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
             hash = compute_hash(keyVal);
-        else {
-            std::hash<key> hasher;
-            hash = hasher(keyVal);
-        }
+//        else {
+//            std::hash<key> hasher;
+//            hash = hasher(keyVal);
+//        }
         int index = hashFunction(hash);
         return table[index].getValue(keyVal).second;
     }

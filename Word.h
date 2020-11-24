@@ -14,7 +14,7 @@ private:
     //numbers of appearances in all documents
     int freq; //frequency of words in all documents
     //tree of documents
-    AVLTree<InnerDoc> docTree;
+    AVLTree<InnerDoc>* docTree;
 
 public:
     Word();
