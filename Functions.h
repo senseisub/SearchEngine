@@ -21,7 +21,9 @@ bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory);
 
 // UI
 void showBasicInputUI();
-
-
 void clearConsole();
+
+
+//searchMods
+void defineMods(string searchquery);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
