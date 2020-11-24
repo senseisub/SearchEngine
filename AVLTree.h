@@ -39,9 +39,19 @@ class AVLTree{
         void emptyTreeForWord(Node*& currentNode){
             if(currentNode == nullptr)
                 return;
-            emptyTree(currentNode->left);
-            emptyTree(currentNode->right);
+            emptyTreeForWord(currentNode->left);
+            emptyTreeForWord(currentNode->right);
             currentNode->data.wipeDocuments();
+            delete currentNode;
+            currentNode = nullptr;
+        }
+        //deletes nodes for Authors and deletes each authors vector
+        void emptyTreeForAuthors(Node*& currentNode){
+            if(currentNode == nullptr)
+                return;
+            emptyTreeForAuthors(currentNode->left);
+            emptyTreeForAuthors(currentNode->right);
+            currentNode->data.deleteAuthors();
             delete currentNode;
             currentNode = nullptr;
         }
@@ -263,6 +273,10 @@ class AVLTree{
 
         void forWords(){
             emptyTreeForWord(this->root);
+        }
+
+        void forAuthors(){
+            emptyTreeForAuthors(this->root);
         }
 
         bool containsForSet(const t& key){
