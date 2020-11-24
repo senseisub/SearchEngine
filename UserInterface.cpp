@@ -9,6 +9,7 @@ void showBasicInputUI(){
     cout << "||                                        ||" << endl;
     cout << "Reparse/populate index : 1 " << endl;
     cout << "Open persistance file : 2 " << endl;
+    cout << "Type 'clear' to clear the console" << endl;
     cout << "Or enter your query below: " << endl;
     cout << "||========================================||" << endl;
     cout << "||                                        ||" << endl;
@@ -18,7 +19,7 @@ void showBasicInputUI(){
     if (input == "1") {
        cout <<  "Reparsing index...." << endl;
     }
-    if (input == "2") {
+    if (input == "2") { //this just prints out the entire persistantFile.txt, I don't know if this is what he wants but I added it lol
         cout << "Opening persistance file...." << endl;
         //printing just incase this is what he wants
         ifstream myfile;
