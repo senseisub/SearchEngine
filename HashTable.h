@@ -27,6 +27,9 @@ private:
                 this->second = second;
             }
             Duo(){}
+            void deleteAuthors(){
+                second.deleteVector();
+            }
             //operators for AVLTree
             bool operator > (const Duo& duo) const{ return (this->first > duo.first); };
             bool operator < (const Duo& duo) const{ return (this->first < duo.first); };
@@ -144,7 +147,7 @@ public:
 
     void emptyAVLs(){
         for(int i = 0; i < amountOfBuckets; i++){
-            table[i].emptyTree();
+            table[i].forAuthors();
         }
     }
 };
