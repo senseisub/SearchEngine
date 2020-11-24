@@ -7,11 +7,13 @@
 Word::Word() {
     freq = 0;
     word = "";
+    docTree = new AVLTree<InnerDoc>();
 }
 
 Word::Word(string& newWord) {
     freq = 1; //if making word, it shows up atleast once
     word = newWord;
+    docTree = new AVLTree<InnerDoc>();
 }
 
 void Word::increaseFreq() {
@@ -55,39 +57,40 @@ bool Word::operator < (const string& word) const{
 }
 
 void Word::insertDoc(InnerDoc &doc) {
-    docTree.insert(doc);
+    docTree->insert(doc);
 }
 
 bool Word::hasDocument(string &documentID) {
-    return docTree.contains(documentID);
+    return docTree->contains(documentID);
 }
 
 void Word::increaseDocumentFrequency(string& documentID){
-    InnerDoc doc = docTree.getValue(documentID);
+    InnerDoc doc = docTree->getValue(documentID);
     doc.increaseRelativeFreq();
 }
 InnerDoc& Word::getDocument(string& documentID){
-    return docTree.getValue(documentID);
+    return docTree->getValue(documentID);
 }
 
 void Word::newDoc(string& documentID){
     InnerDoc doc(documentID);
-    docTree.insert(doc);
+    docTree->insert(doc);
 };
 
 vector<InnerDoc> Word::getDocTreeInOrder() {
-    return docTree.toArrayInOrder();
+    return docTree->toArrayInOrder();
 }
 
 void Word::printWordDocuments(char*& documentPath){
-//    cout << docTree.getSize() << endl;
-    this->docTree.inorder15(documentPath);
+//    cout << docTree->getSize() << endl;
+    this->docTree->inorder15(documentPath);
 }
 
 void Word::wipeDocuments() {
-    this->docTree.emptyTree();
+    this->docTree->emptyTree();
+    delete docTree;
 }
 
 int Word::getDocTreeSize() {
-    return docTree.getSize();
+    return docTree->getSize();
 }
