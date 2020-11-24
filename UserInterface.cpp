@@ -7,11 +7,20 @@ void showBasicInputUI(){
     cout << "Brandon and Seun Search Engine" << endl;
     cout << "||========================================||" << endl;
     cout << "||                                        ||" << endl;
+    cout << "What would you like to do?" << endl;
+    cout << "Press 1 to search, press 2 to open persistent file index:";
     string input;
     cin >> input;
+    if (input == "1") {
+
+    }
+    if (input == "2") {
+
+    }
     if(input == "clear")
         clearConsole();
 }
+
 
 void clearConsole(){
     #if defined _WIN32
