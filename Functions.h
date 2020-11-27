@@ -18,11 +18,18 @@ int fileParser(HashSet<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssoc
 void loadStopWords(ifstream& stops, HashSet<string>& stopWords);
 void createPersistentFile(ofstream& persistentIndex, AVLTree<Word>& words);
 bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory);
-bool getAuthor(HashTable<string, Author*>& authors);
-void ANDProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
-void getANDFromConsole(AVLTree<Word>& words);
-void ORProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
-void getORFromConsole(AVLTree<Word>& words);
+
+// UI
 void showBasicInputUI();
 void clearConsole();
+void getORFromConsole(AVLTree<Word>& words);
+void getANDFromConsole(AVLTree<Word>& words);
+
+
+//searchMods
+void defineMods(string searchquery);
+    //console tests, don't put "AND" or "OR" in front of searches, only put the words you want to search seperated by spaces, With author you can only search the last name and that's it
+bool getAuthor(HashTable<string, Author*>& authors);
+void ANDProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
+void ORProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
