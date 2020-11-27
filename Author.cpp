@@ -48,5 +48,12 @@ bool Author::operator > (const string& author) const{
 
 
 void Author::deleteVector() {
+//    for(Article*& a : *articles){
+//        if(a != nullptr){
+//            delete a;
+//            a = nullptr;
+//
+//        }
+//    }
     delete articles;
 }

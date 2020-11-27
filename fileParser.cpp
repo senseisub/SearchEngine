@@ -33,6 +33,9 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
         string word;
         ss >> word;
 
+        if(word.size() > 1)
+            continue;
+
         size_t pos = 0;
         //if words consists only of alphabetical characters
         for(char c : word){
@@ -55,16 +58,15 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                 StopWordAssociation currentStopWord = stopWordAssociations.getValue(word);
                 if(words.contains(currentStopWord.getWordAssociation())){
                     //gets the word object and increments the document frequency and word frequency
-                    Word currentWord = words.getValue(currentStopWord.getWordAssociation());
-                    if(currentWord.hasDocument(documentID)){
-
-                        currentWord.increaseDocumentFrequency(documentID);
+                    Word* currentWord = &(words.getValue(currentStopWord.getWordAssociation()));
+                    if(currentWord->hasDocument(documentID)){
+                        currentWord->increaseDocumentFrequency(documentID);
                     }
                     else{
 
-                        currentWord.newDoc(documentID);
+                        currentWord->newDoc(documentID);
                     }
-                    currentWord.increaseFreq();
+                    currentWord->increaseFreq();
                 }
                 else{
                     //creates new word and adds it to the AVL
@@ -88,14 +90,14 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
 
                 if(words.contains(word)){
                     //if word already exists then increment document frequency and word frequency
-                    Word currentWord = words.getValue(word);
-                    if(currentWord.hasDocument(documentID)){
-                        currentWord.increaseDocumentFrequency(documentID);
+                    Word* currentWord = &(words.getValue(word));
+                    if(currentWord->hasDocument(documentID)){
+                        currentWord->increaseDocumentFrequency(documentID);
                     }
                     else{
-                        currentWord.newDoc(documentID);
+                        currentWord->newDoc(documentID);
                     }
-                    currentWord.increaseFreq();
+                    currentWord->increaseFreq();
                 }
                 else{
                     //word add new word to the words avl
@@ -109,7 +111,7 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
     } while (ss);
 }
 
-int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author>& authors, char*& directory){
+int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory){
     DIR *pDIR;
     struct dirent *entry;
     if( pDIR=opendir(directory) ) {
@@ -159,15 +161,14 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     string first = d["metadata"]["authors"].GetArray()[i]["first"].GetString();
                     string last = d["metadata"]["authors"].GetArray()[i]["last"].GetString();
                     //put first and last name in one word with no space
-                    string authorName = first + last;
-                    //tranforms to lowercase
-                    transform(authorName.begin(), authorName.end(), authorName.begin(), ::tolower);
-                    if (authors.containsAuthor(authorName)) {
-                        Author currentAuthor = authors[authorName];
-                        currentAuthor.addArticles(thisArticle);
+
+                    transform(last.begin(), last.end(), last.begin(), ::tolower);
+                    if (authors.containsAuthor(last)) {
+                        Author* currentAuthor = authors[last];
+                        currentAuthor->addArticles(thisArticle);
                     } else {
-                        Author currentAuthor(authorName);
-                        currentAuthor.addArticles(thisArticle);
+                        Author* currentAuthor = new Author(last);
+                        currentAuthor->addArticles(thisArticle);
                         authors.insertAuthor(currentAuthor);
                     }
                 }
@@ -207,5 +208,20 @@ bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory) {
     } else {
         cout << "Word is not in any documents. Try again." << endl;
         return false;
+    }
+}
+
+bool getAuthor(HashTable<string, Author*>& authors){
+    string userInput;
+    getline(cin, userInput);
+    if(authors.containsAuthor(userInput)){
+        Author currentAuthor = *authors[userInput];
+        cout << "Current Author : " << currentAuthor.getAuthorName() << endl;
+        for(Article& a : currentAuthor.getArticleList()){
+            cout  <<a.getID() << endl;
+        }
+    }
+    else{
+        cout << "Author doesn't exist" << endl;
     }
 }

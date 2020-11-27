@@ -65,8 +65,9 @@ bool Word::hasDocument(string &documentID) {
 }
 
 void Word::increaseDocumentFrequency(string& documentID){
-    InnerDoc doc = docTree->getValue(documentID);
-    doc.increaseRelativeFreq();
+    InnerDoc* doc = &(docTree->getValue(documentID));
+    doc->increaseRelativeFreq();
+    doc->setRatio(this->getFreq());
 }
 InnerDoc& Word::getDocument(string& documentID){
     return docTree->getValue(documentID);
