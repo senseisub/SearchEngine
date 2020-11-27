@@ -28,7 +28,7 @@ private:
             }
             Duo(){}
             void deleteAuthors(){
-                second.deleteVector();
+                second->deleteVector();
             }
             //operators for AVLTree
             bool operator > (const Duo& duo) const{ return (this->first > duo.first); };
@@ -75,10 +75,10 @@ public:
     }
 
     //specific insert type for authors
-    void insertAuthor(Author& name) {
-        long long int hash = compute_hash(name.getAuthorName());
+    void insertAuthor(Author*& name) {
+        long long int hash = compute_hash(name->getAuthorName());
         int index = hashFunction(hash);
-        Duo duo(name.getAuthorName(), name);
+        Duo duo(name->getAuthorName(), name);
         table[index].insert(duo);
         this->size++;
     }
@@ -101,7 +101,7 @@ public:
         for (int i = 0; i < s.length(); i++) {
             char c = s.at(i);
             if (isalpha(c) && c != ' ') {
-                hash_value = (hash_value + (c - 'a' + 1) * p_pow) % m;
+                hash_value = (hash_value + (c - ' ' + 1) * p_pow) % m;
             }
             p_pow = (p_pow*p) % m;
         }

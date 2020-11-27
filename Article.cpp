@@ -25,5 +25,5 @@ string& Article::getDatePub(){
     return this->getDatePub();
 }
 string& Article::getID(){
-    return this->getID();
+    return this->articleID;
 }
