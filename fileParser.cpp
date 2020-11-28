@@ -13,7 +13,6 @@
 #include "rapidjson/include/rapidjson/filereadstream.h"
 #include <ctype.h>
 #include "rapidjson/include/rapidjson/istreamwrapper.h"
-#include "porter2_stemmer.h"
 
 
 using namespace rapidjson;
@@ -33,13 +32,13 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
         string word;
         ss >> word;
 
-        if(word.size() > 1)
+        if(word.size() < 2)
             continue;
 
         size_t pos = 0;
         //if words consists only of alphabetical characters
         for(char c : word){
-            if(((int)c < 65 || ((int)c < 97) && ((int)c > 90) || (int)c >122)){
+            if(!isalpha(c)){
                 if (word.find(c) != std::string::npos) {
                     word.erase(word.find(c));
                 }
@@ -185,9 +184,9 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-//            if (num == 100) {
-//                return 0;
-//            }
+            if (num == 100) {
+                return 0;
+            }
         }
         closedir(pDIR);
     }

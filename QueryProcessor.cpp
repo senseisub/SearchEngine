@@ -12,7 +12,8 @@ void getANDFromConsole(AVLTree<Word>& words){
     do{
       string singleWord;
       ss >> singleWord;
-      if(words.contains(singleWord) && singleWord.size() > 1)
+        Porter2Stemmer::stem(singleWord);
+        if(words.contains(singleWord) && singleWord.size() > 1)
           wordList.push_back(words.getValue(singleWord));
     }while(ss);
     if(wordList.size() == 0)
@@ -120,6 +121,7 @@ void getORFromConsole(AVLTree<Word>& words){
     do{
         string singleWord;
         ss >> singleWord;
+        Porter2Stemmer::stem(singleWord);
         if(words.contains(singleWord) && singleWord.size() > 1)
             wordList.push_back(words.getValue(singleWord));
     }while(ss);
@@ -127,4 +129,87 @@ void getORFromConsole(AVLTree<Word>& words){
         cout << "nothing" << endl;
     else
         ORProcessor(words, wordList);
+}
+
+void getAUTHORFromConsole(AVLTree<Word>& words, HashTable<string, Author*>& authors){
+    string userInput;
+    getline(cin, userInput);
+    int place = 1;
+    istringstream ss(userInput);
+    vector<Word> wordList;
+    string author;
+    do{
+        string singleWord;
+        ss >> singleWord;
+        if(place == 1)
+            author = singleWord;
+        else
+            Porter2Stemmer::stem(singleWord);
+            if(words.contains(singleWord) && singleWord.size() > 1)
+                wordList.push_back(words.getValue(singleWord));
+        place++;
+    }while(ss);
+    if(wordList.size() == 0){
+        if(authors.containsAuthor(author)){
+            Author currentAuthor = *authors[author];
+            cout << "Current Author : " << currentAuthor.getAuthorName() << endl;
+            for(Article& a : currentAuthor.getArticleList()){
+                cout  <<a.getID() << endl;
+            }
+        }
+        else
+            cout << "Author doesn't exist" << endl;
+    }
+    else{
+        if(authors.containsAuthor(author)){
+            AUTHORProcessor(words, wordList, author, authors);
+        }
+        else
+            cout << "Author doesn't exist" << endl;
+    }
+
+}
+
+void AUTHORProcessor(AVLTree<Word>& words, vector<Word>& wordVector, string& author, HashTable<string, Author*>& authors){
+    list<Article> sortedList;
+    Author currentAuthor = *authors[author];
+    for(Article& a : currentAuthor.getArticleList()){
+        cout  <<a.getID() << endl;
+        list<double> tempList;
+        for(Word& word : wordVector){
+            if(word.hasDocument(a.getID())){
+                InnerDoc wordDoc = word.getDocument(a.getID());
+                tempList.push_back(wordDoc.getRatio());
+            }
+        }
+        if(tempList.size() == wordVector.size()){
+            a.setRatio(getMaxRatio(tempList));
+            if(sortedList.size() == 0){
+                sortedList.push_back(a);
+                continue;
+            }
+            bool exist = false;
+            for (list<Article>::iterator i = sortedList.begin();
+                 i != sortedList.end();
+                 i++){
+
+                if(( a.getRatio() > (*i).getRatio())){
+                    sortedList.insert(i, a);
+                    exist = true;
+                    break;
+                }
+            }
+            if(!exist)
+                sortedList.push_back(a);
+        }
+    }
+    int size= 0;
+    for (list<Article>::iterator i = sortedList.begin();
+         i != sortedList.end();
+         i++){
+        size++;
+        cout << (*i).getID() << endl;
+        if(size == 15)
+            break;
+    }
 }

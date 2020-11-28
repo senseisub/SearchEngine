@@ -40,8 +40,9 @@ int main(int argc, char** argv) {
     }
     else{
         getAuthor(authors);
-        getANDFromConsole(allWords);
-        getORFromConsole(allWords);
+//        getANDFromConsole(allWords);
+//        getORFromConsole(allWords);
+        getAUTHORFromConsole(allWords, authors);
     }
     allWords.forWords();
     stopWordAssociation.emptyTree();
