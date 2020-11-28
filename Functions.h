@@ -10,6 +10,8 @@
 #include "stdc++.h"
 #include <unordered_set>
 #include <fstream>
+#include "porter2_stemmer.h"
+
 
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_FUNCTIONS_H
@@ -24,7 +26,7 @@ void showBasicInputUI();
 void clearConsole();
 void getORFromConsole(AVLTree<Word>& words);
 void getANDFromConsole(AVLTree<Word>& words);
-
+void getAUTHORFromConsole(AVLTree<Word>& words, HashTable<string, Author*>& authors);
 
 //searchMods
 void defineMods(string searchquery);
@@ -32,4 +34,5 @@ void defineMods(string searchquery);
 bool getAuthor(HashTable<string, Author*>& authors);
 void ANDProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
 void ORProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
+void AUTHORProcessor(AVLTree<Word>& words, vector<Word>& wordVector, string& author, HashTable<string, Author*>& authors);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H

@@ -8,11 +8,13 @@ Article::Article(string articleTitle, string printCopy, string datePublished, st
     this->printCopy = printCopy;
     this->datePublished = datePublished;
     this->articleTitle = articleTitle;
+    this->ratio = 0;
 }
 
 Article::Article(string articleTitle, string articleID){
     this->articleID = articleID;
     this->articleTitle = articleTitle;
+    this->ratio = 0;
 }
 
 string& Article::getPrintCopy(){
@@ -26,4 +28,12 @@ string& Article::getDatePub(){
 }
 string& Article::getID(){
     return this->articleID;
+}
+
+void Article::setRatio(double ratio) {
+    this->ratio = ratio;
+}
+
+double Article::getRatio() {
+    return this->ratio;
 }

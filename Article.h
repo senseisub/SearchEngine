@@ -11,6 +11,7 @@ class Article{
         string printCopy;
         string datePublished;
         string articleID;
+        double ratio;
     public:
         Article(string, string, string, string);
         Article(string, string);
@@ -18,6 +19,8 @@ class Article{
         string& getTitle();
         string& getDatePub();
         string& getID();
+        void setRatio(double ratio);
+        double getRatio();
 
 };
 #endif //SEARCHENGINETEMPLATES_ARTICLE_H
