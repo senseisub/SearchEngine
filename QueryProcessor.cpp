@@ -174,7 +174,6 @@ void AUTHORProcessor(AVLTree<Word>& words, vector<Word>& wordVector, string& aut
     list<Article> sortedList;
     Author currentAuthor = *authors[author];
     for(Article& a : currentAuthor.getArticleList()){
-        cout  <<a.getID() << endl;
         list<double> tempList;
         for(Word& word : wordVector){
             if(word.hasDocument(a.getID())){
@@ -211,5 +210,28 @@ void AUTHORProcessor(AVLTree<Word>& words, vector<Word>& wordVector, string& aut
         cout << (*i).getID() << endl;
         if(size == 15)
             break;
+    }
+}
+
+void NOTOperator(list<InnerDoc>& doc, vector<Word>& wordVector){
+    for(list<InnerDoc>::iterator i= doc.begin(); i!= doc.end(); i++){
+        InnerDoc* document = &(*(i));
+        for(Word& word : wordVector){
+            if(word.hasDocument(document->getID())){
+                doc.erase(i);
+                break;
+            }
+        }
+    }
+}
+void NOTOperator( list<Article>& doc, vector<Word>& wordVector){
+    for(list<Article>::iterator i= doc.begin(); i!= doc.end(); i++){
+        Article* document = &(*(i));
+        for(Word& word : wordVector){
+            if(word.hasDocument(document->getID())){
+                doc.erase(i);
+                break;
+            }
+        }
     }
 }

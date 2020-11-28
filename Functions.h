@@ -35,4 +35,6 @@ bool getAuthor(HashTable<string, Author*>& authors);
 void ANDProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
 void ORProcessor(AVLTree<Word>& words, vector<Word>& wordVector);
 void AUTHORProcessor(AVLTree<Word>& words, vector<Word>& wordVector, string& author, HashTable<string, Author*>& authors);
+void NOTOperator( list<InnerDoc>& doc, vector<Word>& wordVector);
+void NOTOperator( list<Article>& doc, vector<Word>& wordVector);
 #endif //SEARCHENGINETEMPLATES_FUNCTIONS_H
