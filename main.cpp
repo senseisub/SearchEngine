@@ -39,10 +39,12 @@ int main(int argc, char** argv) {
         treeContains(allWords, searchWord, directory);
     }
     else{
-        getAuthor(authors);
+//        getAuthor(authors);
 //        getANDFromConsole(allWords);
+        primaryOperatorProcessor(allWords, authors);
 //        getORFromConsole(allWords);
-        getAUTHORFromConsole(allWords, authors);
+//        getAUTHORFromConsole(allWords, authors);
+
     }
     allWords.forWords();
     stopWordAssociation.emptyTree();
