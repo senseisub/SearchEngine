@@ -27,6 +27,9 @@ private:
                 this->second = second;
             }
             Duo(){}
+            void deleteAuthors(){
+                second->deleteVector();
+            }
             //operators for AVLTree
             bool operator > (const Duo& duo) const{ return (this->first > duo.first); };
             bool operator < (const Duo& duo) const{ return (this->first < duo.first); };
@@ -59,12 +62,12 @@ public:
     void insert(const key& keyVal, const value& valueVal){
         long long int hash = 0;
         std::cout << typeid(keyVal).name() << std::endl;
-        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
+//        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
             hash = compute_hash(keyVal);
-        else {
-            std::hash<key> hasher;
-            hash = hasher(keyVal);
-        }
+//        else {
+//            std::hash<key> hasher;
+//            hash = hasher(keyVal);
+//        }
         int index = hashFunction(hash);
         Duo duo(keyVal, valueVal);
         table[index].insert(duo);
@@ -72,10 +75,10 @@ public:
     }
 
     //specific insert type for authors
-    void insertAuthor(Author& name) {
-        long long int hash = compute_hash(name.getAuthorName());
+    void insertAuthor(Author*& name) {
+        long long int hash = compute_hash(name->getAuthorName());
         int index = hashFunction(hash);
-        Duo duo(name.getAuthorName(), name);
+        Duo duo(name->getAuthorName(), name);
         table[index].insert(duo);
         this->size++;
     }
@@ -98,7 +101,7 @@ public:
         for (int i = 0; i < s.length(); i++) {
             char c = s.at(i);
             if (isalpha(c) && c != ' ') {
-                hash_value = (hash_value + (c - 'a' + 1) * p_pow) % m;
+                hash_value = (hash_value + (c - ' ' + 1) * p_pow) % m;
             }
             p_pow = (p_pow*p) % m;
         }
@@ -128,12 +131,12 @@ public:
     //get operator
     value& operator[] (const key& keyVal){
         long long int hash = 0;
-        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
+//        if (strcmp(typeid(keyVal).name(), "Ss") ==0)
             hash = compute_hash(keyVal);
-        else {
-            std::hash<key> hasher;
-            hash = hasher(keyVal);
-        }
+//        else {
+//            std::hash<key> hasher;
+//            hash = hasher(keyVal);
+//        }
         int index = hashFunction(hash);
         return table[index].getValue(keyVal).second;
     }
@@ -144,7 +147,7 @@ public:
 
     void emptyAVLs(){
         for(int i = 0; i < amountOfBuckets; i++){
-            table[i].emptyTree();
+            table[i].forAuthors();
         }
     }
 };

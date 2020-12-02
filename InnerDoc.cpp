@@ -6,11 +6,13 @@
 InnerDoc::InnerDoc(){
     documentID = "";
     relativeFreq = 0;
+    ratio = 0;
 }
 
 InnerDoc::InnerDoc(string& documentID) {
     this->documentID = documentID;
     relativeFreq = 1; //same thing with word file, if it has a documentID, it should have atleast one freq right?
+    ratio = 0;
 }
 void InnerDoc::increaseRelativeFreq(){
     relativeFreq++;
@@ -40,4 +42,20 @@ bool InnerDoc::operator < (const string& documentName) const{
 
 string& InnerDoc::getID() {
     return this->documentID;
+}
+
+void InnerDoc::setRatio (int wordFreq){
+    this->ratio = this->relativeFreq/(double)wordFreq;
+}
+
+double InnerDoc::getRatio() {
+    return this->ratio;
+}
+
+int InnerDoc::getFreq() {
+    return this->relativeFreq;
+}
+
+void InnerDoc::setRatioPrecise(double ratio) {
+    this->ratio = ratio;
 }
