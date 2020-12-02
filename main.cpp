@@ -24,8 +24,10 @@ int main(int argc, char** argv) {
     fileParser(stopWords, allWords, stopWordAssociation, authors, directory);
 //    cout << "number of words : " << allWords.getSize() << endl;
 //    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
-    cout << "number of authors : " << authors.getSize() << endl;
+    cout << "Number of accessible authors : " << authors.getSize() << endl;
 //    cout << "number of words that are stops : " << stopWords.getSize() << endl;
+    cout << "Available keywords: AND, OR, NOT, AUTHOR" << endl;
+    cout << "Please enter your search query:" << endl;
     createPersistentFile(persistentFile, allWords);
     // 1) command line string
     //search documents for string
