@@ -108,9 +108,9 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
 int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author>& authors, char*& directory){
     DIR *pDIR;
     struct dirent *entry;
-    cout << directory << endl;
     if( pDIR=opendir(directory) ) {
-        cout << "found" << endl;
+        cout << "Directory found!" << endl << endl;
+        cout << "Loading. . ." << endl;
         int num = 0;
 
         while (entry = readdir(pDIR)) {
@@ -180,18 +180,21 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-            if (num == 1000) {
-                cout << " test " << endl;
-                return 0;
-            }
+//            if (num == 1000) {
+//                return 0;
+//            }
         }
         closedir(pDIR);
+    }
+    else{
+        cout << "Directory not found :(" << endl;
     }
 }
 
 bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory) {
     string word = searchWord;
-    cout << word << endl;
+    cout << endl;
+    cout<< "Searching for " << word << ". . ." << endl << endl;
     if (words.contains(word)) {
         Word currentWord = words.getValue(word);
         currentWord.printWordDocuments(directory);
