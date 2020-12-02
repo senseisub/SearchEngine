@@ -222,22 +222,23 @@ void AUTHORProcessor(AVLTree<Word>& words, list<Word>& wordVector, string& autho
 }
 
 void NOTOperator(list<InnerDoc>& doc, list<Word>& wordVector){
-    for(list<InnerDoc>::iterator i= doc.begin(); i!= doc.end(); i++){
-        InnerDoc* document = &(*(i));
+    for(list<InnerDoc>::iterator i= doc.begin(); i!= doc.end() && doc.size() > 0; i++){
         for(Word& word : wordVector){
-            if(word.hasDocument(document->getID())){
+            if(word.hasDocument((*i).getID())){
                 doc.erase(i);
+                i= doc.begin();
                 break;
             }
         }
     }
 }
 void NOTOperator( list<Article>& doc, list<Word>& wordVector){
-    for(list<Article>::iterator i= doc.begin(); i!= doc.end(); i++){
+    for(list<Article>::iterator i= doc.begin(); i!= doc.end() && doc.size() > 0; i++){
         Article* document = &(*(i));
         for(Word& word : wordVector){
             if(word.hasDocument(document->getID())){
                 doc.erase(i);
+                i= doc.begin();
                 break;
             }
         }
@@ -293,8 +294,10 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
         list<InnerDoc>* finalDocs = nullptr;
         ANDProcessor(words, ands, finalDocs);
         if(finalDocs != nullptr){
-            if(nots.size() > 0)
+            if(nots.size() > 0) {
                 NOTOperator(*finalDocs, nots);
+                cout << "not" << endl;
+            }
             printInnerDocs(*finalDocs);
             delete finalDocs;
         }
