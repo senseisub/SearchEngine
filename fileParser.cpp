@@ -2,17 +2,7 @@
 // Created by seuns on 11/17/2020.
 //
 #include "Functions.h"
-#include<stdio.h>
-#include<cstdlib>
-#include<string.h>
-#include<fstream>
-#include <dirent.h>
-#include "rapidjson/include/rapidjson/document.h"
-#include "rapidjson/include/rapidjson/writer.h"
-#include "rapidjson/include/rapidjson/stringbuffer.h"
-#include "rapidjson/include/rapidjson/filereadstream.h"
-#include <ctype.h>
-#include "rapidjson/include/rapidjson/istreamwrapper.h"
+
 
 
 using namespace rapidjson;
@@ -184,9 +174,9 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     parseBody(stopWords, words, stopWordAssociations, ss, documentID);
                 }
             }
-//            if (num == 100) {
-//                return 0;
-//            }
+            if (num == 100) {
+                return 0;
+            }
         }
         closedir(pDIR);
     }
