@@ -8,9 +8,10 @@
 class Author{
     private:
         string name;
-        vector<Article> articles;
+        vector<Article>* articles;
     public:
         Author(){}
+        void deleteVector();
         Author(string);
         void printCopy();
         string& getAuthorName();

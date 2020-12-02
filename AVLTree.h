@@ -39,9 +39,19 @@ class AVLTree{
         void emptyTreeForWord(Node*& currentNode){
             if(currentNode == nullptr)
                 return;
-            emptyTree(currentNode->left);
-            emptyTree(currentNode->right);
+            emptyTreeForWord(currentNode->left);
+            emptyTreeForWord(currentNode->right);
             currentNode->data.wipeDocuments();
+            delete currentNode;
+            currentNode = nullptr;
+        }
+        //deletes nodes for Authors and deletes each authors vector
+        void emptyTreeForAuthors(Node*& currentNode){
+            if(currentNode == nullptr)
+                return;
+            emptyTreeForAuthors(currentNode->left);
+            emptyTreeForAuthors(currentNode->right);
+            currentNode->data.deleteAuthors();
             delete currentNode;
             currentNode = nullptr;
         }
@@ -49,11 +59,11 @@ class AVLTree{
         void insert(const t& data, Node*& node){
             if(node == nullptr) {
                 node = new Node(data);
-                this->size++;
+                size++;
             }
             else if(data < node->data){
                 insert(data, node->left);
-                if(height(node->left) - height(node->right)  > 1 || height(node->left) - height(node->right)  < -1){
+                if(height(node->left) - height(node->right)  > 1 ){
                     if(data < node->left->data)
                         case1(node);
                     else
@@ -62,7 +72,7 @@ class AVLTree{
             }
             else if(data > node->data){
                 insert(data, node->right);
-                if(height(node->right) - height(node->left)  > 1 || height(node->right) - height(node->left)  < -1){
+                if(height(node->right) - height(node->left)  > 1 ){
                     if(data > node->right->data)
                         case4(node);
                     else
@@ -151,34 +161,6 @@ class AVLTree{
             return search(root->left, key, set);
         }
 
-    public:
-        //default constructor
-        AVLTree(){
-            root = nullptr;
-            size = 0;
-        }
-        //destructor empties tree
-        ~AVLTree(){
-
-        }
-        void emptyTree(){
-            emptyTree(this->root);
-        }
-
-        // height of the tree
-        int height(Node*& currentNode){
-            if (currentNode == nullptr)
-                return 0;
-            return currentNode->height;
-        }
-
-
-        // A utility function to get maximum
-        // of two integers
-        int max(int a, int b){
-            return (a > b)? a : b;
-        }
-
         //left left rotation
         void case1(Node*& k2){
             Node* k1 = k2->left;
@@ -213,6 +195,36 @@ class AVLTree{
             case4(k1);
         }
 
+    public:
+        //default constructor
+        AVLTree(){
+            root = nullptr;
+            size = 0;
+        }
+        //destructor empties tree
+        ~AVLTree(){
+
+        }
+        void emptyTree(){
+            emptyTree(this->root);
+        }
+
+        // height of the tree
+        int height(Node*& currentNode){
+            if (currentNode == nullptr)
+                return 0;
+            return currentNode->height;
+        }
+
+
+        // A utility function to get maximum
+        // of two integers
+        int max(int a, int b){
+            return (a > b)? a : b;
+        }
+
+
+
         //public insert that starts the recursive insert process
         void insert(const t& data){
             insert(data, this->root);
@@ -223,7 +235,7 @@ class AVLTree{
             inorder(this->root);
         }
         //returns number of nodes
-        int getSize(){
+        int& getSize(){
             return this->size;
         }
         //checks if value exists in tree
@@ -261,6 +273,10 @@ class AVLTree{
 
         void forWords(){
             emptyTreeForWord(this->root);
+        }
+
+        void forAuthors(){
+            emptyTreeForAuthors(this->root);
         }
 
         bool containsForSet(const t& key){
