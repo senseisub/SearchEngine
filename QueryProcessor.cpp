@@ -266,10 +266,9 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
         }
         if( currentOperator == "author" && authors.containsAuthor(singleWord) && author == " "){
                 author = singleWord;
-                cout << singleWord << endl;
                 continue;
         }
-        else if(currentOperator == "author" && !authors.containsAuthor(singleWord)){
+        else if(currentOperator == "author" && !authors.containsAuthor(singleWord) && author == " "){
             cout << "Author doesn't exist" << endl;
             break;
         }
