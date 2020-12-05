@@ -248,7 +248,7 @@ void NOTOperator( list<Article>& doc, list<Word>& wordVector){
 void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& authors){
     string line;
     getline(cin, line);
-    cin.clear();
+//    cin.clear();
     istringstream ss(line);
     list<Word> ands;
     list<Word> ors;
@@ -266,7 +266,12 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
         }
         if( currentOperator == "author" && authors.containsAuthor(singleWord) && author == " "){
                 author = singleWord;
+                cout << singleWord << endl;
                 continue;
+        }
+        else if(currentOperator == "author" && !authors.containsAuthor(singleWord)){
+            cout << "Author doesn't exist" << endl;
+            break;
         }
         Porter2Stemmer::stem(singleWord);
         if(words.contains(singleWord) && singleWord.size() > 1){
