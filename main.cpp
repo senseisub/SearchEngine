@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
     string decision;
 //    cin.ignore();
     getline(cin, decision);
-    if (decision == "N" || decision == "no" || decision == "No") {
+    if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
         loop = false;
     }
     if (decision == "clear") {
