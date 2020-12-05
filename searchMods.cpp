@@ -24,3 +24,11 @@ void defineMods(string searchQuery) { //excludes author
     // not searches for articles without that word
 
 }
+
+
+void outputStatistics(AVLTree<Word>& words, HashTable<string, Author*>& authors, int& numberOfDocs){
+    cout << "Number of articles parsed " << numberOfDocs << endl;
+    cout << "Average words per article " << ((double)words.getSize()) / ((double)numberOfDocs) << endl;
+    cout << "Number of parsed words " << words.getSize() << endl;
+    cout << "Number of authors " << authors.getSize() << endl;
+}

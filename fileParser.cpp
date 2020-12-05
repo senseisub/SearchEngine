@@ -100,7 +100,7 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
     } while (ss);
 }
 
-int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory){
+int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory, int& numberOfDocs){
     DIR *pDIR;
     struct dirent *entry;
     if( pDIR=opendir(directory) ) {
@@ -177,9 +177,11 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                 }
             }
             if (num == 100) {
+                numberOfDocs = num;
                 return 0;
             }
         }
+        numberOfDocs = num;
         closedir(pDIR);
     }
     else{
