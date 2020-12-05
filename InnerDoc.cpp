@@ -9,8 +9,9 @@ InnerDoc::InnerDoc(){
     ratio = 0;
 }
 
-InnerDoc::InnerDoc(string& documentID) {
+InnerDoc::InnerDoc(string& documentID, string& documentTitle) {
     this->documentID = documentID;
+    this->documentTitle = documentTitle;
     relativeFreq = 1; //same thing with word file, if it has a documentID, it should have atleast one freq right?
     ratio = 0;
 }
@@ -58,4 +59,8 @@ int InnerDoc::getFreq() {
 
 void InnerDoc::setRatioPrecise(double ratio) {
     this->ratio = ratio;
+}
+
+string& InnerDoc::getTitle() {
+    return this->documentTitle;
 }

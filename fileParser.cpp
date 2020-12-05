@@ -16,7 +16,7 @@ void loadStopWords(ifstream& stops, HashSet<string>& stopWords){ //Unordered set
     }
 }
 
-void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, istringstream& ss, string& documentID){
+void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, istringstream& ss, string& documentID, string& documentTitle){
     do {
         // Read a word
         string word;
@@ -53,14 +53,14 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     }
                     else{
 
-                        currentWord->newDoc(documentID);
+                        currentWord->newDoc(documentID, documentTitle);
                     }
                     currentWord->increaseFreq();
                 }
                 else{
                     //creates new word and adds it to the AVL
                     Word currentWord(word);
-                    currentWord.newDoc(documentID);
+                    currentWord.newDoc(documentID, documentTitle);
                     words.insert(currentWord);
                 }
             }
@@ -84,14 +84,14 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                         currentWord->increaseDocumentFrequency(documentID);
                     }
                     else{
-                        currentWord->newDoc(documentID);
+                        currentWord->newDoc(documentID, documentTitle);
                     }
                     currentWord->increaseFreq();
                 }
                 else{
                     //word add new word to the words avl
                     Word currentWord(word);
-                    currentWord.newDoc(documentID);
+                    currentWord.newDoc(documentID, documentTitle);
                     words.insert(currentWord);
                 }
             }
@@ -165,13 +165,13 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     string temp = d["abstract"].GetArray()[i]["text"].GetString();
                     istringstream ss(temp);
                     //reads through all words
-                    parseBody(stopWords, words, stopWordAssociations, ss, documentID);
+                    parseBody(stopWords, words, stopWordAssociations, ss, documentID, title);
                 }
                 for (int i = 0; i < d["body_text"].GetArray().Size(); i++) {
                     string temp = d["body_text"].GetArray()[i]["text"].GetString();
                     istringstream ss(temp);
                     //reads through all words
-                    parseBody(stopWords, words, stopWordAssociations, ss, documentID);
+                    parseBody(stopWords, words, stopWordAssociations, ss, documentID, title);
                 }
             }
             if (num == 100) {

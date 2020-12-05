@@ -334,7 +334,7 @@ void printInnerDocs(list<InnerDoc>& articles){
          i != articles.end();
          i++){
         size++;
-        cout << endl << (size) << ". " << (*i).getID() << endl;
+        cout << endl << (size) << ". " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl;
         getPreview((*i).getID());
         if(size == 15)
             break;
