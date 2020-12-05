@@ -150,7 +150,9 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     string first = d["metadata"]["authors"].GetArray()[i]["first"].GetString();
                     string last = d["metadata"]["authors"].GetArray()[i]["last"].GetString();
                     //put first and last name in one word with no space
-
+                    if(last.size() == 0){
+                        continue;
+                    }
                     transform(last.begin(), last.end(), last.begin(), ::tolower);
                     if (authors.containsAuthor(last)) {
                         Author* currentAuthor = authors[last];
