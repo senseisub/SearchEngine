@@ -22,15 +22,15 @@ int main(int argc, char** argv) {
     ifstream stopWordFile("../stopWords.txt");
     loadStopWords(stopWordFile, stopWords);
     fileParser(stopWords, allWords, stopWordAssociation, authors, directory);
+    createPersistentFile(persistentFile, allWords);
 //    cout << "number of words : " << allWords.getSize() << endl;
 //    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
     bool loop = true;
-    while (loop == true) {
+    while (loop) {
     cout << "Number of accessible authors : " << authors.getSize() << endl;
 //    cout << "number of words that are stops : " << stopWords.getSize() << endl;
     cout << "Available keywords: AND, OR, NOT, AUTHOR" << endl;
     cout << "Please enter your search query:" << endl;
-    createPersistentFile(persistentFile, allWords);
     // 1) command line string
     //search documents for string
     //print documents ID
@@ -50,10 +50,11 @@ int main(int argc, char** argv) {
 //        getAUTHORFromConsole(allWords, authors);
 
     }
-    cout << "Would you like to search again?" << endl;
-    cout << "Y / N or clear: ";
+    cout << "\nWould you like to search again?" << endl;
+    cout << "Y / N or clear: " << endl;
     string decision;
-    cin >> decision;
+//    cin.ignore();
+    getline(cin, decision);
     if (decision == "N" || decision == "no" || decision == "No") {
         loop = false;
     }

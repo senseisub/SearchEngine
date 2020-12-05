@@ -248,6 +248,7 @@ void NOTOperator( list<Article>& doc, list<Word>& wordVector){
 void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& authors){
     string line;
     getline(cin, line);
+    cin.clear();
     istringstream ss(line);
     list<Word> ands;
     list<Word> ors;
@@ -312,7 +313,6 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
             delete finalDocs;
         }
     }
-
 }
 
 void printArticles(list<Article>& articles){
