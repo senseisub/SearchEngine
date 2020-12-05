@@ -26,11 +26,11 @@
 using namespace std;
 #ifndef SEARCHENGINETEMPLATES_FUNCTIONS_H
 #define SEARCHENGINETEMPLATES_FUNCTIONS_H
-int fileParser(HashSet<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory);
+int fileParser(HashSet<string>& set, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory, int& numberOfDocs);
 void loadStopWords(ifstream& stops, HashSet<string>& stopWords);
 void createPersistentFile(ofstream& persistentIndex, AVLTree<Word>& words);
 bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory);
-
+void outputStatistics(AVLTree<Word>& words, HashTable<string, Author*>& authors, int& numberOfDocs);
 // UI
 void showBasicInputUI();
 void clearConsole();

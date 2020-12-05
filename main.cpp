@@ -18,10 +18,12 @@ int main(int argc, char** argv) {
     HashSet<string> stopWords(499);
     ofstream persistentFile("../persistentFile.txt");
     AVLTree<Word> allWords;
+    int numberOfDocs = 0;
     AVLTree<StopWordAssociation> stopWordAssociation;
     ifstream stopWordFile("../stopWords.txt");
     loadStopWords(stopWordFile, stopWords);
-    fileParser(stopWords, allWords, stopWordAssociation, authors, directory);
+    fileParser(stopWords, allWords, stopWordAssociation, authors, directory, numberOfDocs);
+    cout << numberOfDocs << endl;
     createPersistentFile(persistentFile, allWords);
 //    cout << "number of words : " << allWords.getSize() << endl;
 //    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
@@ -62,6 +64,7 @@ int main(int argc, char** argv) {
         clearConsole();
     }
     }
+    outputStatistics(allWords, authors, numberOfDocs);
     allWords.forWords();
     stopWordAssociation.emptyTree();
     authors.emptyAVLs();
