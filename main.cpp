@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
     if (argc == 3) {
         searchWord = argv[2];
         directory = argv[1];
-    }
+    };
     HashTable<string, Author*> authors(19999);
     HashSet<string> stopWords(499);
     ofstream persistentFile("../persistentFile.txt");
@@ -24,8 +24,12 @@ int main(int argc, char** argv) {
     fileParser(stopWords, allWords, stopWordAssociation, authors, directory);
 //    cout << "number of words : " << allWords.getSize() << endl;
 //    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
-    cout << "number of authors : " << authors.getSize() << endl;
+    bool loop = true;
+    while (loop == true) {
+    cout << "Number of accessible authors : " << authors.getSize() << endl;
 //    cout << "number of words that are stops : " << stopWords.getSize() << endl;
+    cout << "Available keywords: AND, OR, NOT, AUTHOR" << endl;
+    cout << "Please enter your search query:" << endl;
     createPersistentFile(persistentFile, allWords);
     // 1) command line string
     //search documents for string
@@ -45,6 +49,17 @@ int main(int argc, char** argv) {
 //        getORFromConsole(allWords);
 //        getAUTHORFromConsole(allWords, authors);
 
+    }
+    cout << "Would you like to search again?" << endl;
+    cout << "Y / N or clear: ";
+    string decision;
+    cin >> decision;
+    if (decision == "N" || decision == "no" || decision == "No") {
+        loop = false;
+    }
+    if (decision == "clear") {
+        clearConsole();
+    }
     }
     allWords.forWords();
     stopWordAssociation.emptyTree();

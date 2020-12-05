@@ -35,6 +35,7 @@ void showBasicInputUI(){
 }
 
 
+
 void clearConsole(){
     #if defined _WIN32
         system("cls");
