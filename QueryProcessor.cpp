@@ -330,6 +330,26 @@ void printArticles(list<Article>& articles, string& author){
         if(size == 15)
             break;
     }
+    cout << endl;
+    string choice;
+    cout << "Which article would you like to print?" << endl;
+    cout << "Integer value or NONE: ";
+    cin >> choice;
+    cout << endl;
+    if (choice == "NONE") {
+        return;
+    } else {
+        int choiceint = stoi(choice);
+        int temp = 0;
+        for (list<Article>::iterator i = articles.begin();
+             i != articles.end(); i++){
+            if(temp == choiceint-1) {
+                getPreview((*i).getID());
+                break;
+            }
+            temp++;
+        }
+    }
 }
 
 void printInnerDocs(list<InnerDoc>& articles){
@@ -344,6 +364,7 @@ void printInnerDocs(list<InnerDoc>& articles){
         if(size == 15)
             break;
     }
+    cout << endl;
     string choice;
     cout << "Which article would you like to print?" << endl;
     cout << "Integer value or NONE: ";
