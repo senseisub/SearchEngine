@@ -325,7 +325,7 @@ void printArticles(list<Article>& articles){
          i != articles.end();
          i++){
         size++;
-        cout << endl << (size) << ". " <<(*i).getID() << endl;
+        cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl << "\tID: " << (*i).getID() << endl;
         getPreview((*i).getID());
         if(size == 15)
             break;
@@ -338,7 +338,7 @@ void printInnerDocs(list<InnerDoc>& articles){
          i != articles.end();
          i++){
         size++;
-        cout << endl << (size) << ". " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl;
+        cout << endl << (size) << ". Title" << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title")  << endl << "\tID: " << (*i).getID() << endl;
         getPreview((*i).getID());
         if(size == 15)
             break;
@@ -362,7 +362,7 @@ void getPreview(string docName){
     d.Accept(writer);
     int count = 0;
     string returningString = "";
-    cout << "\t\t" << endl;
+    cout << "\tPreview: " << endl;
     for (int i = 0; i < d["abstract"].GetArray().Size(); i++) {
         string temp = d["abstract"].GetArray()[i]["text"].GetString();
         istringstream ss(temp);
@@ -374,7 +374,7 @@ void getPreview(string docName){
         }while(ss);
         returningString += temp;
         if(count > 300){
-            cout << returningString << endl;
+            cout << "\t" <<returningString << endl;
             return;
         }
     }
@@ -389,7 +389,7 @@ void getPreview(string docName){
         }while(ss);
         returningString += temp;
         if(count > 300){
-            cout << returningString << endl;
+            cout << "\t" << returningString << endl;
             return;
         }
     }
