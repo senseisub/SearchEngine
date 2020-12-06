@@ -15,10 +15,11 @@ private:
     //ratio for ranking
     double ratio;
     string documentTitle;
+    string firstAuthor;
 public:
     InnerDoc();
     //the constructor that will be used
-    InnerDoc(string& documentID, string& documentTitle);
+    InnerDoc(string& documentID, string& documentTitle, string& firstAuthor);
     //utility function to increase frequency when the same word shows up again in the same document
     void increaseRelativeFreq();
     //getter
@@ -26,6 +27,7 @@ public:
     string& getTitle();
     double getRatio();
     int getFreq();
+    string& getAuthor();
     //setter
     void setRatio(int wordFreq);
     void setRatioPrecise(double ratio);

@@ -37,7 +37,7 @@ void clearConsole();
 void getORFromConsole(AVLTree<Word>& words);
 void getANDFromConsole(AVLTree<Word>& words);
 void getAUTHORFromConsole(AVLTree<Word>& words, HashTable<string, Author*>& authors);
-void printArticles(list<Article>& articles);
+void printArticles(list<Article>& articles, string& author);
 void printInnerDocs(list<InnerDoc>& docs);
 void getPreview(string docName);
 //searchMods

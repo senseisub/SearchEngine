@@ -9,9 +9,10 @@ InnerDoc::InnerDoc(){
     ratio = 0;
 }
 
-InnerDoc::InnerDoc(string& documentID, string& documentTitle) {
+InnerDoc::InnerDoc(string& documentID, string& documentTitle, string& firstAuthor) {
     this->documentID = documentID;
     this->documentTitle = documentTitle;
+    this->firstAuthor = firstAuthor;
     relativeFreq = 1; //same thing with word file, if it has a documentID, it should have atleast one freq right?
     ratio = 0;
 }
@@ -63,4 +64,8 @@ void InnerDoc::setRatioPrecise(double ratio) {
 
 string& InnerDoc::getTitle() {
     return this->documentTitle;
+}
+
+string& InnerDoc::getAuthor() {
+    return this->firstAuthor;
 }

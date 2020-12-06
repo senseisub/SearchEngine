@@ -73,8 +73,8 @@ InnerDoc& Word::getDocument(string& documentID){
     return docTree->getValue(documentID);
 }
 
-void Word::newDoc(string& documentID, string& documentTitle){
-    InnerDoc doc(documentID, documentTitle);
+void Word::newDoc(string& documentID, string& documentTitle, string& firstAuthor){
+    InnerDoc doc(documentID, documentTitle, firstAuthor);
     docTree->insert(doc);
 };
 
