@@ -21,7 +21,7 @@ string& Article::getPrintCopy(){
     return this->printCopy;
 }
 string& Article::getTitle(){
-    return this->getTitle();
+    return this->articleTitle;
 }
 string& Article::getDatePub(){
     return this->getDatePub();
