@@ -44,7 +44,8 @@ void showBasicInputUI(){
 //             cout << endl;
              if (decision == "PRINT" || decision == "print" || decision == "Print") {
                  //print persistance file
-//                 ifstream printer("../persinstentFile.txt");
+                 ifstream printer("../persistentFile.txt");
+                 printPersistentFile(printer);
                  cout << "\nWould you like to search again?" << endl;
                  cout << "Y / N:" << endl;
 
