@@ -56,12 +56,25 @@ int main(int argc, char** argv) {
     cout << "Y / N or clear: " << endl;
     string decision;
 //    cin.ignore();
-    getline(cin, decision);
+
+    bool loop2 = false;
+    while (loop2 == false) { //loop that waits for a Y/N/clear command. anything else returns invalid.
+        getline(cin, decision);
     if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
         loop = false;
+        break;
     }
     if (decision == "clear") {
         clearConsole();
+        cout << "\nWould you like to search again?" << endl;
+        cout << "Y / N:" << endl;
+    }
+    if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
+        loop2 = true;
+    }
+    else {
+        cout << "\nInvalid command. Please enter Y / N : \n";
+    }
     }
     }
     outputStatistics(allWords, authors, numberOfDocs);
