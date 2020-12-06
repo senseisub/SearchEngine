@@ -33,6 +33,7 @@ bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory);
 void outputStatistics(AVLTree<Word>& words, HashTable<string, Author*>& authors, int& numberOfDocs);
 // UI
 void showBasicInputUI();
+void startIndex(AVLTree<Word>& allWords, HashTable<string, Author*>& authors, char* directory, char* searchWord, int& argc);
 void clearConsole();
 void getORFromConsole(AVLTree<Word>& words);
 void getANDFromConsole(AVLTree<Word>& words);

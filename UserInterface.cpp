@@ -34,7 +34,58 @@ void showBasicInputUI(){
         clearConsole();
 }
 
+ void startIndex(AVLTree<Word>& allWords, HashTable<string, Author*>& authors, char* directory, char* searchWord, int& argc){
+     bool loop = true;
+     while (loop) {
+         cout << "Number of accessible authors : " << authors.getSize() << endl;
+         //    cout << "number of words that are stops : " << stopWords.getSize() << endl;
+         cout << "Available keywords: AND, OR, NOT, AUTHOR" << endl;
+         cout << "Please enter your search query:" << endl;
+         // 1) command line string
+         //search documents for string
+         //print documents ID
+         // 1.5) author hash table
+         // 2) search query, defining the AUTHOR word, the NOT word. user input handling
+         // 3) wants we get that and it works, then we do user interface, allow them to reset console, reset search, etc etc
+         // 4) index persistance
+         // 5)
+         if(argc == 3){
+             treeContains(allWords, searchWord, directory);
+         }
+         else{
+             //        getAuthor(authors);
+             //        getANDFromConsole(allWords);
+             primaryOperatorProcessor(allWords, authors);
+             //        getORFromConsole(allWords);
+             //        getAUTHORFromConsole(allWords, authors);
 
+         }
+         cout << "\nWould you like to search again?" << endl;
+         cout << "Y / N or clear: " << endl;
+         string decision;
+         cin.ignore();
+
+         bool loop2 = false;
+         while (loop2 == false) { //loop that waits for a Y/N/clear command. anything else returns invalid.
+             getline(cin, decision);
+             if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
+                 loop = false;
+                 break;
+             }
+             if (decision == "clear") {
+                 clearConsole();
+                 cout << "\nWould you like to search again?" << endl;
+                 cout << "Y / N:" << endl;
+             }
+             if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
+                 loop2 = true;
+             }
+             else {
+                 cout << "\nInvalid command. Please enter Y / N : \n";
+             }
+         }
+     }
+}
 
 void clearConsole(){
     std::cout << "\x1B[2J\x1B[H";
