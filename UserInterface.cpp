@@ -38,14 +38,15 @@ void showBasicInputUI(){
 
 void clearConsole(){
     std::cout << "\x1B[2J\x1B[H";
+    cout << "\033[0;0m";
 //    for(int i = 0; i < 50; i++){
 //        cout << endl;
 //    }
-    #if defined _WIN32
-        system("cls");
-    #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
-        system("clear");
-    #elif defined (__APPLE__)
-        system("clear");
-    #endif
+//    #if defined _WIN32
+//        system("cls");
+//    #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+//        system("clear");
+//    #elif defined (__APPLE__)
+//        system("clear");
+//    #endif
 }
