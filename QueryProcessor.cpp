@@ -291,7 +291,7 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
         if(finalDocs != nullptr) {
             if (nots.size() > 0)
                 NOTOperator(*finalDocs, nots);
-            printArticles(*finalDocs);
+            printArticles(*finalDocs, author);
             delete finalDocs;
         }
     }
@@ -319,13 +319,13 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
     }
 }
 
-void printArticles(list<Article>& articles){
+void printArticles(list<Article>& articles, string& author){
     int size= 0;
     for (list<Article>::iterator i = articles.begin();
          i != articles.end();
          i++){
         size++;
-        cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl << "\tID: " << (*i).getID() << endl;
+        cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl << "\tID: " << (*i).getID() << endl << "\tPrimary Author: " << author << endl << "\tPublication: N/A" << endl << "\tDate Published: N/A" << endl;
 //        getPreview((*i).getID());
         if(size == 15)
             break;
@@ -338,7 +338,8 @@ void printInnerDocs(list<InnerDoc>& articles){
          i != articles.end();
          i++){
         size++;
-        cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title")  << endl << "\tID: " << (*i).getID() << endl;
+
+        cout << endl << (size) << ". Title" << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title")  << endl << "\tID: " << (*i).getID() << endl << "\tPrimary Author: " << ((*i).getAuthor().size() != 0 ? (*i).getAuthor() : "No Author") << endl << "\tPublication: N/A" << endl << "\tDate Published: N/A" << endl;
 //        getPreview((*i).getID());
         if(size == 15)
             break;
