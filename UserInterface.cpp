@@ -37,6 +37,10 @@ void showBasicInputUI(){
 
 
 void clearConsole(){
+    std::cout << "\x1B[2J\x1B[H";
+//    for(int i = 0; i < 50; i++){
+//        cout << endl;
+//    }
     #if defined _WIN32
         system("cls");
     #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
