@@ -321,6 +321,7 @@ void primaryOperatorProcessor(AVLTree<Word>& words, HashTable<string, Author*>& 
 
 void printArticles(list<Article>& articles, string& author){
     int size= 0;
+    int listsize = articles.size();
     for (list<Article>::iterator i = articles.begin();
          i != articles.end();
          i++){
@@ -332,56 +333,77 @@ void printArticles(list<Article>& articles, string& author){
     }
     cout << endl;
     string choice;
+    bool loop = false;
     cout << "Which article would you like to print?" << endl;
     cout << "Integer value or NONE: ";
-    cin >> choice;
-    cout << endl;
-    if (choice == "NONE") {
-        return;
-    } else {
-        int choiceint = stoi(choice);
-        int temp = 0;
-        for (list<Article>::iterator i = articles.begin();
-             i != articles.end(); i++){
-            if(temp == choiceint-1) {
-                getPreview((*i).getID());
-                break;
+    while (!loop) {
+        cin >> choice;
+        cout << endl;
+        if (choice == "NONE") {
+            return;
+        } else {
+            int choiceint = stoi(choice);
+            int temp = 0;
+            if (choiceint > listsize) {
+                cout << "Invalid number. Try again: ";
+                loop = false;
+            } else {
+                for (list<Article>::iterator i = articles.begin();
+                     i != articles.end(); i++) {
+                    if (temp == choiceint - 1) {
+                        getPreview((*i).getID());
+                        return;
+                    }
+                    temp++;
+                }
+
             }
-            temp++;
         }
     }
 }
 
-void printInnerDocs(list<InnerDoc>& articles){
-    int size= 0;
+void printInnerDocs(list<InnerDoc>& articles) {
+    int size = 0;
+    int listsize = articles.size();
     for (list<InnerDoc>::iterator i = articles.begin();
          i != articles.end();
-         i++){
+         i++) {
         size++;
 
-        cout << endl << (size) << ". Title" << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title")  << endl << "\tID: " << (*i).getID() << endl << "\tPrimary Author: " << ((*i).getAuthor().size() != 0 ? (*i).getAuthor() : "No Author") << endl << "\tPublication: N/A" << endl << "\tDate Published: N/A" << endl;
+        cout << endl << (size) << ". Title" << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl
+             << "\tID: " << (*i).getID() << endl << "\tPrimary Author: "
+             << ((*i).getAuthor().size() != 0 ? (*i).getAuthor() : "No Author") << endl << "\tPublication: N/A" << endl
+             << "\tDate Published: N/A" << endl;
 //        getPreview((*i).getID());
-        if(size == 15)
+        if (size == 15)
             break;
     }
     cout << endl;
     string choice;
     cout << "Which article would you like to print?" << endl;
     cout << "Integer value or NONE: ";
-    cin >> choice;
-    cout << endl;
-    if (choice == "NONE") {
-        return;
-    } else {
-        int choiceint = stoi(choice);
-        int temp = 0;
-        for (list<InnerDoc>::iterator i = articles.begin();
-             i != articles.end(); i++){
-            if(temp == choiceint-1) {
-                getPreview((*i).getID());
-                break;
+    bool loop = false;
+    while (!loop) {
+        cin >> choice;
+        cout << endl;
+        if (choice == "NONE") {
+            return;
+        } else {
+            int choiceint = stoi(choice);
+            int temp = 0;
+            if (choiceint > listsize) {
+                cout << "Invalid number. Try again: ";
+                loop = false;
+            } else {
+                for (list<InnerDoc>::iterator i = articles.begin();
+                     i != articles.end(); i++) {
+                    if (temp == choiceint - 1) {
+                        getPreview((*i).getID());
+                        return;
+                    }
+                    temp++;
+                }
             }
-            temp++;
         }
     }
 }
