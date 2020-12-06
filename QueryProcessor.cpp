@@ -326,7 +326,7 @@ void printArticles(list<Article>& articles){
          i++){
         size++;
         cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl << "\tID: " << (*i).getID() << endl;
-        getPreview((*i).getID());
+//        getPreview((*i).getID());
         if(size == 15)
             break;
     }
@@ -338,10 +338,29 @@ void printInnerDocs(list<InnerDoc>& articles){
          i != articles.end();
          i++){
         size++;
-        cout << endl << (size) << ". Title" << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title")  << endl << "\tID: " << (*i).getID() << endl;
-        getPreview((*i).getID());
+        cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title")  << endl << "\tID: " << (*i).getID() << endl;
+//        getPreview((*i).getID());
         if(size == 15)
             break;
+    }
+    string choice;
+    cout << "Which article would you like to print?" << endl;
+    cout << "Integer value or NONE: ";
+    cin >> choice;
+    cout << endl;
+    if (choice == "NONE") {
+        return;
+    } else {
+        int choiceint = stoi(choice);
+        int temp = 0;
+        for (list<InnerDoc>::iterator i = articles.begin();
+             i != articles.end(); i++){
+            if(temp == choiceint-1) {
+                getPreview((*i).getID());
+                break;
+            }
+            temp++;
+        }
     }
 }
 
