@@ -31,7 +31,7 @@ public:
     //inserts new document
     void insertDoc(InnerDoc& doc);
     //creates new document based on string
-    void newDoc(string& documentID, string& documentTitle);
+    void newDoc(string& documentID, string& documentTitle, string& firstAuthor);
     //checks if docTree has document
     bool hasDocument(string& documentID);
     //increases the frequency count of certain document
