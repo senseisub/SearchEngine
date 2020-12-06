@@ -40,21 +40,24 @@ void showBasicInputUI(){
          cin.ignore();
 
          bool loop2 = false;
+         bool clear = false;
          while (loop2 == false) { //loop that waits for a Y/N/clear command. anything else returns invalid.
              getline(cin, decision);
-             if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
-                 loop = false;
-                 break;
-             }
              if (decision == "clear") {
                  clearConsole();
                  cout << "\nWould you like to search again?" << endl;
                  cout << "Y / N:" << endl;
+                 cin >> decision;
+                 clear = true;
+             }
+             if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
+                 loop = false;
+                 break;
              }
              if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
                  loop2 = true;
              }
-             else {
+             else if (!clear){
                  cout << "\nInvalid command. Please enter Y / N : \n";
              }
          }
