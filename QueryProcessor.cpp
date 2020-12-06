@@ -370,7 +370,7 @@ void printInnerDocs(list<InnerDoc>& articles) {
          i++) {
         size++;
 
-        cout << endl << (size) << ". Title" << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl
+        cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl
              << "\tID: " << (*i).getID() << endl << "\tPrimary Author: "
              << ((*i).getAuthor().size() != 0 ? (*i).getAuthor() : "No Author") << endl << "\tPublication: N/A" << endl
              << "\tDate Published: N/A" << endl;
