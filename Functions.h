@@ -41,6 +41,7 @@ void getAUTHORFromConsole(AVLTree<Word>& words, HashTable<string, Author*>& auth
 void printArticles(list<Article>& articles, string& author);
 void printInnerDocs(list<InnerDoc>& docs);
 void getPreview(string docName);
+void printPersistentFile(ifstream& file);
 //searchMods
 void defineMods(string searchquery);
     //console tests, don't put "AND" or "OR" in front of searches, only put the words you want to search seperated by spaces, With author you can only search the last name and that's it

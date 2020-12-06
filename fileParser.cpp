@@ -221,3 +221,11 @@ bool getAuthor(HashTable<string, Author*>& authors){
         cout << "Author doesn't exist" << endl;
     }
 }
+
+void printPersistentFile(ifstream& file){
+    while(file.peek() != EOF){
+        string line;
+        getline(file, line);
+        cout << line << endl;
+    }
+}
