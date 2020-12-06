@@ -23,16 +23,13 @@ int main(int argc, char** argv) {
     ifstream stopWordFile("../stopWords.txt");
     loadStopWords(stopWordFile, stopWords);
     fileParser(stopWords, allWords, stopWordAssociation, authors, directory, numberOfDocs);
-    cout << numberOfDocs << endl;
     createPersistentFile(persistentFile, allWords);
-//    cout << "number of words : " << allWords.getSize() << endl;
-//    cout << "number of stops : " << stopWordAssociation.getSize() << endl;
+    showBasicInputUI();
     startIndex(allWords, authors, directory, searchWord, argc);
     outputStatistics(allWords, authors, numberOfDocs);
     allWords.forWords();
     stopWordAssociation.emptyTree();
     authors.emptyAVLs();
     stopWords.emptyAVLs();
-//    showBasicInputUI();
     return 0;
 }
