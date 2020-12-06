@@ -61,29 +61,35 @@ void showBasicInputUI(){
 
          }
          cout << "\nWould you like to search again?" << endl;
-         cout << "Y / N or clear: " << endl;
+         cout << "Y / N, clear, or print persistant file (PRINT): " << endl;
          string decision;
-         cin.ignore();
-
+//         cin.ignore();
          bool loop2 = false;
-         bool clear = false;
          while (loop2 == false) { //loop that waits for a Y/N/clear command. anything else returns invalid.
              getline(cin, decision);
-             if (decision == "clear") {
+//             cout << endl;
+             if (decision == "PRINT" || decision == "print" || decision == "Print") {
+                 //print persistance file
+//                 ifstream printer("../persinstentFile.txt");
+                 cout << "\nWould you like to search again?" << endl;
+                 cout << "Y / N:" << endl;
+
+             }
+             else if (decision == "clear") {
                  clearConsole();
                  cout << "\nWould you like to search again?" << endl;
                  cout << "Y / N:" << endl;
                  cin >> decision;
-                 clear = true;
+
              }
-             if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
+             else if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
                  loop = false;
                  break;
              }
-             if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
+             else if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
                  loop2 = true;
              }
-             else if (!clear){
+             else {
                  cout << "\nInvalid command. Please enter Y / N : \n";
              }
          }
