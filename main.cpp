@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
         searchWord = argv[2];
         directory = argv[1];
     };
-    HashTable<string, Author*> authors(39999);
+    HashTable<string, Author*> authors(19999);
     HashSet<string> stopWords(499);
     ofstream persistentFile("../persistentFile.txt");
     AVLTree<Word> allWords;
