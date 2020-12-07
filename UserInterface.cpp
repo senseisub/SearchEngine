@@ -37,7 +37,7 @@ void showBasicInputUI(){
          cout << "\nWould you like to search again?" << endl;
          cout << "Y / N, clear, or print persistant file (PRINT): " << endl;
          string decision;
-//         cin.ignore();
+         cin.ignore();
          bool loop2 = false;
          while (loop2 == false) { //loop that waits for a Y/N/clear command. anything else returns invalid.
              getline(cin, decision);

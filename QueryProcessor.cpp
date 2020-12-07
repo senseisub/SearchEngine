@@ -336,12 +336,11 @@ void printArticles(list<Article>& articles, string& author){
     bool loop = false;
     cout << "Which article would you like to print?" << endl;
     cout << "Integer value or NONE: ";
-    transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
     while (!loop) {
         cin >> choice;
         cout << endl;
-
-        if (choice == "none" || "0") {
+        transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
+        if (choice == "none" || choice == "0") {
             return;
         } else {
             int choiceint = stoi(choice);
@@ -389,7 +388,7 @@ void printInnerDocs(list<InnerDoc>& articles) {
         cin >> choice;
         cout << endl;
         transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
-        if (choice == "none" || "0") {
+        if (choice == "none" || choice == "0") {
             return;
         } else {
             int choiceint = stoi(choice);
