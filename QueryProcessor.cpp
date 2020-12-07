@@ -66,15 +66,6 @@ void ANDProcessor(AVLTree<Word>& words, list<Word>& wordVector, list<InnerDoc>*&
                 sortedList->push_back(doc);
         }
     }
-    int size= 0;
-    for (list<InnerDoc>::iterator i = sortedList->begin();
-         i != sortedList->end();
-         i++){
-        size++;
-        cout << (*i).getID() << endl;
-        if(size == 15)
-            break;
-    }
 
     finalDocument = sortedList;
 }
@@ -106,15 +97,7 @@ void ORProcessor(AVLTree<Word>& words, list<Word>& wordVector, list<InnerDoc>*& 
         }
 
     }
-    int size= 0;
-    for (list<InnerDoc>::iterator i = sortedList->begin();
-         i != sortedList->end();
-         i++){
-        size++;
-        cout << (*i).getID() << endl;
-        if(size == 15)
-            break;
-    }
+
     finalDocument = sortedList;
 }
 void getORFromConsole(AVLTree<Word>& words){
@@ -207,15 +190,6 @@ void AUTHORProcessor(AVLTree<Word>& words, list<Word>& wordVector, string& autho
             if(!exist)
                 sortedList->push_back(a);
         }
-    }
-    int size= 0;
-    for (list<Article>::iterator i = sortedList->begin();
-         i != sortedList->end();
-         i++){
-        size++;
-        cout << (*i).getID() << endl;
-        if(size == 15)
-            break;
     }
 
     finalDocument = sortedList;
@@ -327,7 +301,6 @@ void printArticles(list<Article>& articles, string& author){
          i++){
         size++;
         cout << endl << (size) << ". Title: " << ((*i).getTitle() != "" ? (*i).getTitle() : "No Title") << endl << "\tID: " << (*i).getID() << endl << "\tPrimary Author: " << author << endl << "\tPublication: N/A" << endl << "\tDate Published: N/A" << endl;
-//        getPreview((*i).getID());
         if(size == 15)
             break;
     }
@@ -375,7 +348,6 @@ void printInnerDocs(list<InnerDoc>& articles) {
              << "\tID: " << (*i).getID() << endl << "\tPrimary Author: "
              << ((*i).getAuthor().size() != 0 ? (*i).getAuthor() : "No Author") << endl << "\tPublication: N/A" << endl
              << "\tDate Published: N/A" << endl;
-//        getPreview((*i).getID());
         if (size == 15)
             break;
     }

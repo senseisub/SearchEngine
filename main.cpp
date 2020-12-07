@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
     AVLTree<StopWordAssociation> stopWordAssociation;
     ifstream stopWordFile("../stopWords.txt");
     loadStopWords(stopWordFile, stopWords);
-    fileParser(stopWords, allWords, stopWordAssociation, authors, directory, numberOfDocs);
+    numberOfDocs = fileParser(stopWords, allWords, stopWordAssociation, authors, directory);
     createPersistentFile(persistentFile, allWords);
     showBasicInputUI();
     startIndex(allWords, authors, directory, searchWord, argc);
