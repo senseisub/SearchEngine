@@ -22,7 +22,7 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
         string word;
         ss >> word;
 
-        if(word.size() < 2)
+        if(word.size() <= 2)
             continue;
 
         size_t pos = 0;
