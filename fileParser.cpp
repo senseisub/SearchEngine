@@ -100,13 +100,13 @@ void parseBody(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
     } while (ss);
 }
 
-int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory, int& numberOfDocs){
+int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWordAssociation>& stopWordAssociations, HashTable<string, Author*>& authors, char*& directory){
     DIR *pDIR;
     struct dirent *entry;
+    int num = 0;
     if( pDIR=opendir(directory) ) {
         cout << "Directory found!" << endl << endl;
         cout << "Loading. . ." << endl;
-        int num = 0;
 
         while (entry = readdir(pDIR)) {
             if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
@@ -128,7 +128,7 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                     return EXIT_FAILURE;
                 }
                 if (strcmp(entry->d_name, "metadata-cs2341.csv") == 0)
-                    return 0;
+                    return num;
 
                 IStreamWrapper isw{ifs};
 
@@ -180,16 +180,15 @@ int fileParser(HashSet<string>& stopWords, AVLTree<Word>& words, AVLTree<StopWor
                 }
             }
             if (num == 100) {
-                numberOfDocs = num;
-                return 0;
+                return num;
             }
         }
-        numberOfDocs = num;
         closedir(pDIR);
     }
     else{
         cout << "Directory not found :(" << endl;
     }
+    return num;
 }
 
 bool treeContains(AVLTree<Word>& words, char*& searchWord, char*& directory) {
