@@ -55,14 +55,14 @@ void showBasicInputUI(){
                  cout << "\nWould you like to search again?" << endl;
                  cout << "Y / N:" << endl;
              }
+             else if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
+                 loop2 = true;
+             }
              else if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
                  loop = false;
                  break;
              }
-             else if (decision == "Yes" || decision == "y" || decision == "yes" || decision == "YES" || decision == "Y"){
-                 loop2 = true;
-             }
-             else {
+             else if (loop2 == false){
                  cout << "\nInvalid command. Please enter Y / N : \n";
              }
          }

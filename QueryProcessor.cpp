@@ -359,11 +359,17 @@ void printInnerDocs(list<InnerDoc>& articles) {
     while (!loop) {
         cin >> choice;
         cout << endl;
+        int choiceint;
         transform(choice.begin(), choice.end(), choice.begin(), ::tolower);
         if (choice == "none" || choice == "0") {
             return;
         } else {
-            int choiceint = stoi(choice);
+            try { //incase stoi conversion fails.
+            choiceint = stoi(choice);
+            } catch(...) {
+                cout << "Must enter integer or NONE" << endl;
+                break;
+            }
             int temp = 0;
             if (choiceint > listsize) {
                 cout << "Invalid number. Try again: ";
