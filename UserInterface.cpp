@@ -54,8 +54,6 @@ void showBasicInputUI(){
                  clearConsole();
                  cout << "\nWould you like to search again?" << endl;
                  cout << "Y / N:" << endl;
-                 cin >> decision;
-
              }
              else if (decision == "N" || decision == "no" || decision == "No" || decision == "n") {
                  loop = false;
