@@ -8,7 +8,7 @@ The documents are ranked by term-frequency/inverse document frequency metric and
 
 <h3>How to use</h3>
 <p>Set up: <br>
-    <a src = "https://www.semanticscholar.org/cord19/download">Link to Dataset for covid information files</a>
+    <a href = "https://www.semanticscholar.org/cord19/download">Link to Dataset for covid information files</a>
 </p>
 <p>
     Program argument should be then a path to the directory where the files for indexing are located.
