@@ -2,7 +2,7 @@
 Info: Data Structures Final Project at Southern Methodist University.
 <h2>Kick Covid in the _____</h2>
 <h3>Description</h3>
-<p>This is a COVID Document Search Engine that utilizes a self-implemented AVLTree for word storage and self-implemented HashTable for authors.
+<p>This is a COVID Document Search Engine written in C++ and built using CMAKE that utilizes a self-implemented AVLTree for word storage and self-implemented HashTable for authors.
 The documents are ranked by term-frequency/inverse document frequency metric and indexed with a command line user interface. Implemented own Hash Table and AVL Tree to store authors and stemmed words.
 </p>
 
@@ -15,8 +15,9 @@ The documents are ranked by term-frequency/inverse document frequency metric and
     <br>
     For example:<br>
 
-    $ g++ main.cpp ../Documents -o SearchEngine
-    $ ./SearchEngine
+    $ mkdir build
+    $ cmake ..
+    $ ./SearchEngineTemplates {directory}
 </p>
 <p>
     From there the program should run as expected. The program loads and indexes all the files and then the program should be ready for any queries.
